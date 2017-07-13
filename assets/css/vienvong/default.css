@@ -1,0 +1,17 @@
+/*message style*/
+.message-success {
+	color: #33cc33;
+}
+
+.message-error {
+	color: #ff4d4d;
+}
+
+.loading {
+	margin-top: 20%;
+}
+
+.loading p{
+	text-align: center;
+	color: #00aeef;
+}
