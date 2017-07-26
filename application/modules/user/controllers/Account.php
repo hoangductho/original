@@ -168,6 +168,12 @@ class Account extends MY_Controller {
 			$this->__ACCOUNT__ = $exists;
 			
 			$this->__TOKEN__['account_id'] = $exists->id;
+
+			$update = $this->MAccess->update(array('account_id' => $exists->id), array('id' => $this->__TOKEN__['session']));
+
+			if(!$update) {
+				$this->_error(self::SRV_DATABASE_UPDATE_FAILED, self::HTTP_OK);
+			}
 		}
 
 		$response = $this->__ACCOUNT__;

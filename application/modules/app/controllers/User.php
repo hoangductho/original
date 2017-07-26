@@ -13,6 +13,10 @@ class User extends MY_Controller {
 			'method' => 'GET',
 			'data' => []
 		],
+		'signout' => [
+			'method' => 'GET',
+			'data' => []
+		],
 		'forgot' => [
 			'method' => 'GET',
 			'data' => []
@@ -35,7 +39,9 @@ class User extends MY_Controller {
 
 	public function __construct() {
 		parent::__construct();
-
+		if(!empty($this->__ACCOUNT__) && $this->__FUNCTION__ != 'signout') {
+			redirect('/app/dashboard');
+		}
 		// set layout
 		$this->load->set_layout('user_layout.php');
 	}
@@ -66,14 +72,21 @@ class User extends MY_Controller {
 	 */
 	public function signup()
 	{
-		// $email = [
-		// 	'to' => 'hoangductho.3690@gmail.com',
-		// 	'subject' => 'Test mail vienvong',
-		// 	'message' => 'Hello World!',
-
-		// ];
-		// $this->Vmail->send($email);
 		$this->load->render('User/signup');
+	}
+	/**
+	 * Sign Up page
+	 * 
+	 * Form for user sign up new account
+	 */
+	public function signout()
+	{
+		if (isset($_COOKIE['session_token'])) {
+		    unset($_COOKIE['session_token']);
+		    setcookie('session_token', '', -1, '/');
+		} 
+	
+		redirect('/app/user/signin');
 	}
 	/**
 	 * Forgot Password

@@ -17,6 +17,39 @@ $(document).ready(function(){
 
   /**
    * ----------------------------------------------
+   * Render EditorMD
+   * ----------------------------------------------
+   */
+  $(function() {
+    if($('#editormd').length) {
+      var editor = editormd("editormd", {
+        path              : "../lib/", // Autoload modules mode, codemirror, marked... dependents libs path
+        width             : "100%",
+        height            : 640,
+        path              : '/assets/editormd/lib/',
+        lineNumbers       : true,
+        tex               : true,
+        tocm              : true,
+        emoji             : true,
+        taskList          : true,
+        codeFold          : true,
+        searchReplace     : true,
+        htmlDecode        : "style,script,iframe",
+        flowChart         : true,
+        sequenceDiagram   : true,
+      });
+    }
+  });
+
+  /**
+   * ----------------------------------------------
+   * render datatables
+   * ----------------------------------------------
+   */
+  $('#datatable').DataTable();
+
+  /**
+   * ----------------------------------------------
    * auto run active method
    * ----------------------------------------------
    */

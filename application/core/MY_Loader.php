@@ -109,7 +109,7 @@ class MY_Loader extends HMVC_Loader {
   * @param $data data will be pushed to view
   * @param $alias alias name for view in template
   */
-  public function layout($alias, $data) {
+  public function layout($alias, $data = array()) {
     if(!empty($alias)) {
       if(!is_array($alias)) {
         $this->_LAYOUT_DATA[$alias] = $data;
@@ -130,7 +130,7 @@ class MY_Loader extends HMVC_Loader {
   */
   public function layout_set_array($data) {
     if(!empty($data))
-      array_merge($this->_LAYOUT_DATA, $data);
+      $this->_LAYOUT_DATA = array_merge($this->_LAYOUT_DATA, $data);
   }
 
   // ------------------------------------------------------------------

@@ -43,3 +43,27 @@ $lang['SRV-20007'] = 'Tài khoản đang trong thời gian chị án phạt';
 $lang['SRV-20008'] = 'Tài khoản đã bị khóa'; 
 $lang['SRV-20009'] = 'Mật khẩu không đúng'; 
 $lang['SRV-20010'] = 'Tài khoản đã đăng nhập'; 
+
+/**
+ * ------------------------------------------------
+ * Account action message
+ * ------------------------------------------------
+ */ 
+// Active account
+$lang['SRV-20001'] = 'Mã kích hoạt không đúng định dạng'; 
+$lang['SRV-20002'] = 'Mã kích hoạt hết hạn'; 
+$lang['SRV-20003'] = 'E-mail không tồn tại'; 
+$lang['SRV-20004'] = 'Kích hoạt tài khoản gặp sự cố';
+$lang['SRV-20005'] = 'Tài khoản chưa kích hoạt'; 
+$lang['SRV-20006'] = 'Tài khoản đã ngừng hoạt động'; 
+$lang['SRV-20007'] = 'Tài khoản đang trong thời gian chị án phạt'; 
+$lang['SRV-20008'] = 'Tài khoản đã bị khóa'; 
+$lang['SRV-20009'] = 'Mật khẩu không đúng'; 
+$lang['SRV-20010'] = 'Tài khoản đã đăng nhập'; 
+
+/**
+ * ------------------------------------------------
+ * Database Error
+ * ------------------------------------------------
+ */
+$lang['SRV-30000'] = 'Cập nhật dữ liệu thất bại'; 

@@ -135,6 +135,21 @@ function PasswordHashing($password) {
 	}
 }
 /**
+ * ----------------------------------------
+ * Redirect URL
+ * ----------------------------------------
+ *
+ * @todo redirect to another page
+ *
+ * @param string url url to redirect
+ */
+function redirect($url) {
+    ob_start();
+    header('Location: '.$url);
+    ob_end_flush();
+    // exit();
+}
+/**
 * 
 */
 class VCommon

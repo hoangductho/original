@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Dashboard extends MY_Controller {
 
 	protected $__ISSERVICE__ = false;
+	protected $__IS_AUTH__ = true;
 	protected $__RULES__ = [
 		'index' => [
 			'method' => 'GET',
@@ -35,6 +36,6 @@ class Dashboard extends MY_Controller {
 	 */
 	public function index()
 	{
-		$this->load->render('User/signin');
+		$this->load->render('Dashboard/dashboard');
 	}
 }

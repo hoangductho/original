@@ -6,14 +6,15 @@
  * @param object item value
  * @param datetime expire date
  */
-function createCookie(name,value,days) {
+function createCookie(name,value,days, path) {
     var expires = "";
     if (days) {
         var date = new Date();
         date.setTime(date.getTime() + (days*24*60*60*1000));
         expires = "; expires=" + date.toUTCString();
     }
-    document.cookie = name + "=" + value + expires + "; path=/";
+
+    document.cookie = name + "=" + value + expires + "; path=" + path;
 }
 
 /**
@@ -40,7 +41,17 @@ function readCookie(name) {
  * @param string item name
  */
 function eraseCookie(name) {
-    createCookie(name,"",-1);
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+/**
+ * Set Cookie item
+ * ------------------------------------------------
+ *
+ * @param string item name
+ */
+function setCookie(name, value, days) {
+    createCookie(name,value,days, '/');    
 }
 /**
  * AES KEY Init

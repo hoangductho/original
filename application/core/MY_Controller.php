@@ -53,6 +53,11 @@ class MY_Controller extends REST_Controller {
   const SRV_ACCOUNT_PASSWORD_INVALID = 20009;
   const SRV_ACCOUNT_SIGNED_IN = 20010;
 
+  /**
+   * Database Error
+   */
+  const SRV_DATABASE_UPDATE_FAILED = 30000;
+
 
   /**
    * Data request
@@ -84,6 +89,10 @@ class MY_Controller extends REST_Controller {
    * Access token
    */
   protected $__TOKEN__;
+  /**
+   * Authenticate 
+   */
+  protected $__IS_AUTH__ = FALSE;
 
   /**
    * Constructor
@@ -105,6 +114,9 @@ class MY_Controller extends REST_Controller {
 
     // protected access
     $this->_access_token_info();
+
+    // check authenticate
+    $this->_check_auth();
   }
 
   // ----------------------------------------------------------------
@@ -411,7 +423,7 @@ class MY_Controller extends REST_Controller {
     }
 
     // decrypt protected data 
-    if(!empty($rules->security) && $rules->security) {
+    if($this->__ISSERVICE__ && (empty($rules->security) || $rules->security)) {
       $this->_protected_data();
     }
 
@@ -615,8 +627,11 @@ class MY_Controller extends REST_Controller {
    * ----------------------------------------------
    */
   private function _set_cookie_data() {
-    if($this->__ISSERVICE__ == false && empty($_COOKIE['access_token'])) {
-      setcookie('session_token',$this->MAccess->create());
+    if(!$this->__ISSERVICE__) {
+      if(!$this->_access_token_cookie()) {
+        setcookie('session_token',$this->MAccess->create(), time() + (86400 * 30), '/');  
+      }
+      
     }
 
     if($this->__ISSERVICE__ == false && empty($_COOKIE['rsakey'])) {
@@ -624,9 +639,9 @@ class MY_Controller extends REST_Controller {
 
       $create = $this->MRsakey->create();
       
-      setcookie('publickey', $create['key']['public'], $time);
-      setcookie('publicHexkey', $create['key']['publicHex'], $time);
-      setcookie('expired_key', date('Ymd'));
+      setcookie('publickey', $create['key']['public'], $time, '/');
+      setcookie('publicHexkey', $create['key']['publicHex'], $time, '/');
+      setcookie('expired_key', date('Ymd'), $time, '/');
     }
   }
 
@@ -693,5 +708,88 @@ class MY_Controller extends REST_Controller {
     }
 
     $this->__TOKEN__ = $token;
+  }
+
+  /**
+   * ----------------------------------------------
+   * Access token cookie
+   * ----------------------------------------------
+   */
+  protected function _access_token_cookie() {
+    if(!isset($_COOKIE['session_token'])) {
+      return false;
+    }
+    else {
+      $token = $_COOKIE['session_token'];
+
+      $token = json_decode(base64_decode($token), true);
+
+      // check token id
+      if(!isset($token['session']) || !filter_var($token['session'], FILTER_VALIDATE_INT)) {
+        return false;
+      }
+
+      // check account id
+      if(!isset($token['account_id']) || filter_var($token['account_id'], FILTER_VALIDATE_INT) === false) {
+        return false;
+      }    
+
+      // check created time
+      if(!isset($token['created_time']) || !filter_var($token['created_time'], FILTER_VALIDATE_INT)) {
+        return false;
+      }
+
+      // check expired time
+      if(!isset($token['end_time']) || !filter_var($token['end_time'], FILTER_VALIDATE_INT)) {
+        return false;
+      } 
+      else if($token['end_time'] < time()) {
+        return false;
+      }
+
+
+      $filter['id'] = $token['session'];
+      $filter['created_time'] = $token['created_time'];
+      $filter['account_id'] = $token['account_id'];
+
+      $exist = $this->MAccess->exists($filter, '*');
+
+      $exist = $exist[0];
+
+      // check token info
+      if(!$exist || hash($exist['algorithm'], $exist['token']) != $token['token']) {
+        return false;
+      }
+
+      // get account info
+      if ($token['account_id'] != 0) {
+        $account = $this->MAccount->account_id_exist_status($token['account_id'], 'active');
+
+        if(!$account) {
+          return false;
+        }
+
+        $this->__ACCOUNT__ = $account;
+      }
+
+      $this->__TOKEN__ = $token;
+
+      return true;
+    }
+  }
+  /**
+   * ----------------------------------------------
+   * Protect Authenticate
+   * ----------------------------------------------
+   */
+  protected function _check_auth() {
+    if($this->__IS_AUTH__ && empty($this->__ACCOUNT__)) {
+      if($this->__ISSERVICE__) {
+        $this->_error(self::SRV_NON_AUTHORITATIVE_INFORMATION, self::HTTP_OK);
+      }
+      else {
+        redirect('/app/user/signin');
+      }
+    }
   }
 }

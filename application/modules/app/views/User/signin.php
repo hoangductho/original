@@ -5,14 +5,14 @@
 			<form role="form" id="account">
 				<fieldset>
 					<div class="form-group">
-						<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="">
+						<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="" required="" />
 					</div>
 					<div class="form-group">
-						<input class="form-control" placeholder="Mật khẩu" name="password" type="password" value="">
+						<input class="form-control" placeholder="Mật khẩu" name="password" type="password" autocomplete="false" required="" />
 					</div>
 					<div class="checkbox">
 						<label>
-							<input name="remember" type="checkbox" value="Remember Me">Ghi nhớ tài khoản
+							<input name="remember" type="checkbox" value="Remember Me" />Ghi nhớ tài khoản
 						</label>
 					</div>
 					<div class="form-group">

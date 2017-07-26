@@ -15,3 +15,20 @@
 	text-align: center;
 	color: #00aeef;
 }
+
+.chat .panel-body {
+	height: 520px;
+}
+
+.non-padding-left {
+	padding-left: 0 !important;
+}
+
+.non-padding-right {
+	padding-right: 0 !important;
+}
+
+img {
+	background: url("/assets/images/no_image.jpg") no-repeat center;
+	background-size: cover;
+}

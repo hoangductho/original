@@ -45,11 +45,12 @@ function signin_success(response) {
     if(response != null) {
       if(response.status) {
       $('#account #message').html(message_success);
-      console.log(response);
-      createCookie('session_token', response.message.token);
+      
+      setCookie('session_token', response.message.token);
+      setCookie('email', response.message.email);
       
       // similar behavior as an HTTP redirect
-      //window.location.replace("/app/User/signin");
+      window.location.replace("/app/dashboard");
     }else {
       $('#account #message').html("<span class='message-error'>" + response.message + "!</span>");
     }

@@ -101,7 +101,7 @@ class MBase extends CI_Model {
 				return $update;
 			}
 
-			if($update['ok']) {
+			if($update) {
 				return true;
 			}else {
 				return false;
