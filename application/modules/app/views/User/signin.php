@@ -2,21 +2,20 @@
 	<div class="login-panel panel panel-default">
 		<div class="panel-heading">Đăng nhập</div>
 		<div class="panel-body">
-			<form role="form" id="account">
-				<fieldset>
-					<div class="form-group">
-						<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="" required="" />
+			<form id="account">
+				<div class="form-group">
+						<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="" required="" >
 					</div>
 					<div class="form-group">
-						<input class="form-control" placeholder="Mật khẩu" name="password" type="password" autocomplete="false" required="" />
+						<input class="form-control" placeholder="Mật khẩu" name="password" type="password" autocomplete="false" required="" >
 					</div>
 					<div class="checkbox">
 						<label>
-							<input name="remember" type="checkbox" value="Remember Me" />Ghi nhớ tài khoản
+							<input name="remember" type="checkbox" value="Remember Me" >Ghi nhớ tài khoản
 						</label>
 					</div>
 					<div class="form-group">
-						<a id='submit' href="javascript:signin();" class="btn btn-primary">Đăng nhập</a>
+						<button id='submit' onclick="signin()" class="btn btn-primary">Đăng nhập</button>
 					</div>
 					<div class="form-group">
 						<p id="message"></p>
@@ -26,7 +25,6 @@
 						<span class="pull-right">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
 						<span class="pull-right"><a href="/app/user/forgot">Quên mật khẩu</a></span>
 					</div>
-				</fieldset>
 			</form>
 		</div>
 	</div>

@@ -33,7 +33,13 @@ class MBase extends CI_Model {
 	 * @return insert result
 	 */
 	public function insert($data) {
-		return $this->db->insert($this->table, $data);
+		try {
+			$insert = $this->db->insert($this->table, $data);
+			return $insert;
+		} catch (Exception $e) {
+			return ['status' => 0,'code' => 1,'message' => $e['message']];
+		}
+		
 	}
 	// ----------------------------------------------------------------
 	/**
@@ -47,11 +53,40 @@ class MBase extends CI_Model {
 	 * @return rows result
 	 */
 	public function get($filter, $select = '*') {
+		// var_dump($filter);
 		if(is_array($select)) {
 			$select = implode(',', $select);
 		}
+		// echo $this->db->select($select)->where($filter)->from($this->table)->get_compiled_select(); exit();
+		$query = $this->db->select($select)->where($filter)->from($this->table)->get();
+		// var_dump($this->db->last_query());
+		return $query->result_array();
+	}
+	// ----------------------------------------------------------------
+	/**
+	 * --------------------------------------------
+	 * Get Element By ID
+	 * --------------------------------------------
+	 *
+	 * @param array $filter filter's conditional
+	 * @param mixed $select fields needed get
+	 *
+	 * @return rows result
+	 */
+	public function getByID($id, $select = '*') {
+		if(is_array($select)) {
+			$select = implode(',', $select);
+		}
+
+		$filter = array(
+			'id' => $id
+		);
 		// echo $this->db->select($select)->where($filter)->from($this->table)->get_compiled_select();
-		return $this->db->select($select)->where($filter)->from($this->table)->get();
+		$query = $this->db->select($select)->where($filter)->from($this->table)->get();
+
+		$result = $query->result_array();
+
+		return !empty($result[0]) ? $result[0] : $result;
 	}
 	// ----------------------------------------------------------------
 	/**
@@ -68,8 +103,12 @@ class MBase extends CI_Model {
 		if(is_array($select)) {
 			$select = implode(',', $select);
 		}
+
+		if(!empty($select)) {
+			$this->db->select($select);
+		}
 		// echo $this->db->select($select)->where($filter)->from($this->table)->get_compiled_select();
-		$query = $this->db->select($select)->where($filter)->from($this->table)->get();
+		$query = $this->db->where($filter)->from($this->table)->get();
 
 		if($query->num_rows() > 0)  {
 			if(!empty($select)) {

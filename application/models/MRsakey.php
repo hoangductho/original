@@ -5,7 +5,7 @@ class MRsakey extends MBase {
 	/**
 	 * Table name
 	 */
-	public $table = 'Rsakey';
+	public $table = 'RSAKEY';
 
 	// ----------------------------------------------------------------
 	/**

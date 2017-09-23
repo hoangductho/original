@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Forms</title>
 
-<link href="/assets/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="/assets/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet">
+<link href="/assets/css/lumino/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/css/lumino/datepicker3.css" rel="stylesheet">
 <link href="/assets/css/lumino/styles.css" rel="stylesheet">
 <link href="/assets/css/vienvong/default.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -35,11 +35,10 @@
 	    </div>
 	</div>
 
-	<script src="/assets/node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="/assets/node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="/assets/js/lumino/jquery.min.js"></script>
 	<script src="/assets/js/jsencrypt/jsencrypt.min.js"></script>
 	<script src="/assets/js/crypto-js/crypto-js.js"></script>
-	<script src="/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="/assets/js/lumino/bootstrap.min.js"></script>
 	<!-- <script src="/assets/js/lumino/chart.min.js"></script> -->
 	<!-- <script src="/assets/js/lumino/chart-data.js"></script> -->
 	<!-- <script src="/assets/js/lumino/easypiechart.js"></script> -->

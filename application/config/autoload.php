@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array();
+$autoload['helper'] = array('url', 'vurl');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('MBase', 'MAccess', 'MRsakey', 'MAccount');
+$autoload['model'] = array('MBase', 'MAccess', 'MRsakey', 'MAccount', 'MCategories', 'MSeries', 'MRegions', 'MArticles', 'MGroups', 'MRoles', 'MGroupuser', 'MPermission', 'MRolePermission', 'MUserPermission');

@@ -15,8 +15,16 @@ class Dashboard extends MY_Controller {
 	public function __construct() {
 		parent::__construct();
 
+		$layout_data = [
+			'title' => 'Dashboard',
+			'javascript' => array(
+                // 1 => '/assets/js/vienvong/dashboard.js'
+            )
+		];
+
 		// set layout
 		$this->load->set_layout('active_layout.php');
+		$this->load->layout($layout_data);
 	}
 
 	/**

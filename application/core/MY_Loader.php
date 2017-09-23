@@ -51,6 +51,13 @@ class MY_Loader extends HMVC_Loader {
   * @access protected
   */
   protected $_MAIN_DATA;
+  /**
+  * Dictionary
+  *
+  * @var array
+  * @access protected
+  */
+  public $__DICT__;
 
   /**
   * Constructor

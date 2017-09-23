@@ -44,16 +44,16 @@ function signin_success(response) {
 
     if(response != null) {
       if(response.status) {
-      $('#account #message').html(message_success);
-      
-      setCookie('session_token', response.message.token);
-      setCookie('email', response.message.email);
-      
-      // similar behavior as an HTTP redirect
-      window.location.replace("/app/dashboard");
-    }else {
-      $('#account #message').html("<span class='message-error'>" + response.message + "!</span>");
-    }
+        $('#account #message').html(message_success);
+        
+        setCookie('session_token', response.message.token);
+        setCookie('email', response.message.email);
+        
+        // similar behavior as an HTTP redirect
+        window.location.replace("/app/dashboard");
+      }else {
+        $('#account #message').html("<span class='message-error'>" + response.message + "!</span>");
+      }
     }
     else {
       $('#account #message').html(message_error);

@@ -7,6 +7,28 @@ $(document).ready(function(){
     clearBtn: true
   });
 
+  $('.datepicker').datepicker({
+    format: "dd/mm/yyyy",
+    language: "vi",
+    clearBtn: true
+  });
+
+  $('.datetimepicker').datetimepicker({
+    format: "YYYY/MM/DD HH:mm:ss",
+    icons: {
+        time: "fa fa-clock-o",
+        date: "fa fa-calendar",
+        previous: "fa fa-chevron-left",
+        next: "fa fa-chevron-right",
+        up: "fa fa-arrow-up",
+        down: "fa fa-arrow-down"
+    },
+    // inline: true,
+    // locale: "vn",
+    // sideBySide: true,
+    // showClear: true
+  });
+
   $('[data-toggle="tooltip"]').tooltip(); 
 
   $( "#account" ).submit(function( event ) {
@@ -21,24 +43,7 @@ $(document).ready(function(){
    * ----------------------------------------------
    */
   $(function() {
-    if($('#editormd').length) {
-      var editor = editormd("editormd", {
-        path              : "../lib/", // Autoload modules mode, codemirror, marked... dependents libs path
-        width             : "100%",
-        height            : 640,
-        path              : '/assets/editormd/lib/',
-        lineNumbers       : true,
-        tex               : true,
-        tocm              : true,
-        emoji             : true,
-        taskList          : true,
-        codeFold          : true,
-        searchReplace     : true,
-        htmlDecode        : "style,script,iframe",
-        flowChart         : true,
-        sequenceDiagram   : true,
-      });
-    }
+    editormdCreate('editormd');
   });
 
   /**
@@ -46,8 +51,13 @@ $(document).ready(function(){
    * render datatables
    * ----------------------------------------------
    */
-  $('#datatable').DataTable();
-
+  $.datatableRender = function(id) {
+    if($('#' + id).length) {
+      $('#' + id).DataTable();
+    }
+  }
+  
+  $.datatableRender('datatable');
   /**
    * ----------------------------------------------
    * auto run active method

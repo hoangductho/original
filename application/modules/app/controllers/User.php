@@ -86,7 +86,8 @@ class User extends MY_Controller {
 		    setcookie('session_token', '', -1, '/');
 		} 
 	
-		redirect('/app/user/signin');
+		// redirect('/app/user/signin');
+		header("Location: /app/user/signin");
 	}
 	/**
 	 * Forgot Password

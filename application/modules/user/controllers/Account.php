@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Account extends MY_Controller {
 	protected $__ISSERVICE__ = true;
+	protected $__IS_AUTH__ = false;
 	protected $__RULES__ = [
 		'signin' => [
 			'method' => 'POST',
@@ -169,7 +170,7 @@ class Account extends MY_Controller {
 			
 			$this->__TOKEN__['account_id'] = $exists->id;
 
-			$update = $this->MAccess->update(array('account_id' => $exists->id), array('id' => $this->__TOKEN__['session']));
+			$update = $this->MAccess->update(array('account_id' => $exists->id, 'password' => PasswordHashing($this->__REQUEST_DATA__->password)), array('id' => $this->__TOKEN__['session']));
 
 			if(!$update) {
 				$this->_error(self::SRV_DATABASE_UPDATE_FAILED, self::HTTP_OK);

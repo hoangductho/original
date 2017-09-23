@@ -1,11 +1,10 @@
 <div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">Form Elements</div>
+					<div class="panel-heading">Writing Article</div>
 					<div class="panel-body">
 						<div class="col-md-12 col-lg-12">
-							<form role="form" class=" has-success">
-								
+							<form id="article" role="form" class=" has-success">
 								<div class="form-group">
 									<label>Tiêu đề</label>
 									<input class="form-control" placeholder="Tiêu đề bài viết" type="text" name='title'>
@@ -20,9 +19,9 @@
 										
 										<div class="form-group" >
 											<label>Ảnh minh họa</label>
-											<input class="form-control" placeholder="Link ảnh" type="url" name='image'>
+											<input id='avatar' class="form-control" placeholder="Link ảnh" type="url" name='image'>
 											<br>
-											<img src="" alt="" width="240" height="135">
+											<img id='avatar-show' src="" alt="" width="240" height="135" style="display: block;">
 										</div>
 
 									</div>
@@ -30,10 +29,13 @@
 										<div class="form-group">
 											<label>Chủ đề</label>
 											<select class="form-control" name='category'>
-												<option>Option 1</option>
-												<option>Option 2</option>
-												<option>Option 3</option>
-												<option>Option 4</option>
+												<?php 
+												if(isset($categories)) { 
+													foreach ($categories as $key => $value) {
+														echo '<option value='.$value['id'].'>'.$value['name'].'</option>';
+													}
+												}
+												?>
 											</select>
 										</div>
 
@@ -44,7 +46,34 @@
 
 										<div class="form-group">
 											<label>Loạt bài viết</label>
-											<input class="form-control" placeholder="Tên loạt bài viết" type="text" name='series'>
+											<input class="form-control" placeholder="Tên loạt bài viết" type="text" name='series' list="series">
+											<datalist id='series'>
+												<?php if(isset($series)) {
+													foreach ($series as $key => $value) {
+														echo '<option value="'.$value['name'].'">'.$value['name'].'</option>';
+													}
+												}
+												?>
+											</datalist>
+										</div>
+
+										<div class="form-group">
+											<label>Quyền truy cập</label>
+											<select name="privacy" class="form-control">
+						                        <option value="0">Private</option>
+						                        <option value="1" selected="">Public</option>
+						                        <option value="2">Protected</option>
+						                    </select>
+										</div>
+										
+										<div class="form-group">
+											<label>Trạng thái gửi </label>
+											<select name="status" class="form-control"  value="<?php echo $article['status'];?>">
+						                        <option value="0">Draft</option>
+						                        <option value="1">Complete</option>
+						                        <option value="2">Editing</option>
+						                        <option value="3">Cancel</option>
+						                    </select>
 										</div>
 									</div>
 								</div>
@@ -53,13 +82,15 @@
 
 								<div class="form-group">
 									<div id="editormd">
-									    <textarea style="display:none;" rows="15"></textarea>
+									    <textarea style="display:none;" rows="15" name="content"></textarea>
 									</div>
 								</div>
-
 								<div class="form-group">
-									<button type="submit" class="btn btn-primary">Submit</button>
-									<button type="reset" class="btn btn-default">Reset</button>
+									<button class="btn btn-dangerous pull-right" type="reset">Reset</button>
+									<a class="btn btn-info pull-right ml-1 mr-1" href="javascript:articles_edit();">Submit</a>
+								</div>
+								<div class="form-group">
+									<p id='message'></p>
 								</div>
 								
 							</div>

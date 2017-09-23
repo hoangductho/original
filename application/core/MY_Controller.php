@@ -52,6 +52,7 @@ class MY_Controller extends REST_Controller {
   const SRV_ACCOUNT_BLOCKED = 20008;
   const SRV_ACCOUNT_PASSWORD_INVALID = 20009;
   const SRV_ACCOUNT_SIGNED_IN = 20010;
+  const SRV_ACCOUNT_NON_PERMISSION = 20011;
 
   /**
    * Database Error
@@ -115,8 +116,13 @@ class MY_Controller extends REST_Controller {
     // protected access
     $this->_access_token_info();
 
+    // check permission
+    $this->_protect_permission();
+
     // check authenticate
     $this->_check_auth();
+
+    $this->load->__DICT__ = $this->config->item('dictionary');
   }
 
   // ----------------------------------------------------------------
@@ -162,7 +168,7 @@ class MY_Controller extends REST_Controller {
   // ----------------------------------------------------------------
   /**
    * --------------------------------------------
-   * Error message
+   * Services Error message
    * --------------------------------------------
    * 
    */
@@ -180,6 +186,19 @@ class MY_Controller extends REST_Controller {
         show_error(self::_get_message($code), $http_code);
       }
     }
+  }
+
+  // ----------------------------------------------------------------
+  /**
+   * ----------------------------------------------
+   * Function Error Message
+   * ----------------------------------------------
+   *
+   */
+  public function _function_error($message) {
+    // Set the response and exit
+    $this->response(set_response_data(FALSE, SRV_DATA_INVALID, $message), 200); // NOT_FOUND (404) being the HTTP response code
+    exit();
   }
 
   // ----------------------------------------------------------------
@@ -234,7 +253,7 @@ class MY_Controller extends REST_Controller {
     }
 
     // Authentication Protect
-    self::_protect_authenticate();
+    // self::_protect_authenticate();
 
     // validate request data
     self::_validate_request_data();
@@ -247,15 +266,18 @@ class MY_Controller extends REST_Controller {
    * ----------------------------------------------
    */
   protected function _protect_authenticate() {
-    // get rules of function
-    $rules = $this->_get_rule();
-
-    $authEncrypt = $this->input->get_request_header('Authenticate');
-
-    $authInfo = null;
-
     // check authenticate required
-    if(!empty($rules->authenticate) && $rules->authenticate && !empty($authEncrypt)) {
+    $rules = $this->_get_rule();
+    if((!empty($rules->authenticate) && $rules->authenticate) || $this->__IS_AUTH__) {
+      // get rules of function
+
+      $authEncrypt = $this->__ISSERVICE__ ? $this->input->get_request_header('session_token') : $_COOKIE['session_token'];
+
+      $authInfo = null;
+
+      if(empty($authEncrypt)) {
+        self::_error(self::SRV_AUTHENTICATION_INVALID, self::HTTP_UNAUTHORIZED);
+      }
 
       if(!empty($rules->security)) {
         // init phpseclib
@@ -264,33 +286,35 @@ class MY_Controller extends REST_Controller {
         // decrypt authenticate data
         //$authInfo = json_decode($phpseclib->aesDecryptCryptoJS($authEncrypt, $this->controller->aes['key'], $this->controller->__AES__['iv']), true);  
 
-        $authInfo = json_decode(base64_decode($authEncrypt));
+        $authInfo = json_decode(base64_decode($authEncrypt), true);
       }
       else {
-        $authInfo = json_decode(base64_decode($authEncrypt));
+        $authInfo = json_decode(base64_decode($authEncrypt), true);
       }
       
       // get current time
       $datetime = date('yyyy/mm/dd H:i:s');
       // check expired
-      if($authInfo['live_time'] < $datetime) {
+      if($authInfo['end_time'] < $datetime) {
         self::_error(self::SRV_AUTHENTICATION_TIMEOUT, self::HTTP_UNAUTHORIZED);
       }
       // create check conditions
       $where = array(
-        'key' => (!empty($authInfo['access_token'])) ? $authInfo['access_token'] : 0,
-        'user_id' => (!empty($authInfo['access_id'])) ? $authInfo['access_id'] : 0,
-        'created_at' => $authInfo['created_at'],
-        'live_time' => $authInfo['live_time'],
+        // 'token' => (!empty($authInfo['token'])) ? $authInfo['token'] : 0,
+        'id' => $authInfo['session'],
+        'account_id' => (!empty($authInfo['account_id'])) ? $authInfo['account_id'] : 0,
+        'created_time' => $authInfo['created_time'],
+        // 'live_time' => $authInfo['end_time'],
         'ip' => $this->input->ip_address(),
         'browser' => $this->agent->browser(),
         'mobile' => $this->agent->mobile(),
         'platform' => $this->agent->platform(),
       );
       // get access_token
-      $access_token = $this->MAccess_token->exists($where, '_id, ip, password');
+      $access_token = $this->MAccess->exists($where, 'id, ip, account_id, password');
       // check authenticate
       if(!$access_token) {
+        var_dump($access_token, $authInfo);
         self::_error(self::SRV_AUTHENTICATION_INVALID, self::HTTP_UNAUTHORIZED);
       }
       // get user info
@@ -423,8 +447,9 @@ class MY_Controller extends REST_Controller {
     }
 
     // decrypt protected data 
-    if($this->__ISSERVICE__ && (empty($rules->security) || $rules->security)) {
+    if((!empty($rules->security) && $rules->security) || ($this->__ISSERVICE__ && empty($rules->security))) {
       $this->_protected_data();
+      // var_dump($this->__REQUEST_DATA__); exit();
     }
 
     // if data inputed
@@ -432,20 +457,23 @@ class MY_Controller extends REST_Controller {
 
       // data return
       $validate = (object) array();
-
+      
       foreach ($rules->data as $key => $value) {
-        if(empty($this->__REQUEST_DATA__->{$key}) && (empty($value['allow_null']) || !$value['allow_null'])) {
+        if((!isset($this->__REQUEST_DATA__->{$key}) || $this->__REQUEST_DATA__->{$key} == null) && (empty($value['allow_null']) || !$value['allow_null'])) {
           self::_error(self::SRV_DATA_REQUIRED, self::HTTP_BAD_REQUEST, $key);
         }
 
         // data need check
-        $inputed = $this->__REQUEST_DATA__->{$key};
+        $inputed = null;
+        if(isset($this->__REQUEST_DATA__->{$key})) {
+          $inputed = $this->__REQUEST_DATA__->{$key};
+        }
 
         // if data filter type defined
         if(!empty($value['filter'])) {
           // options filter
           $options = (!empty($value['options']))?$value['options']:array();
-
+          
           // filter data
           $filter = filter_var($inputed, $value['filter'], array('options' => $options));
           
@@ -630,8 +658,9 @@ class MY_Controller extends REST_Controller {
     if(!$this->__ISSERVICE__) {
       if(!$this->_access_token_cookie()) {
         setcookie('session_token',$this->MAccess->create(), time() + (86400 * 30), '/');  
+      } else {
+        setcookie('session_token', base64_encode(json_encode($this->__TOKEN__)), time() + (86400 * 30), '/');  
       }
-      
     }
 
     if($this->__ISSERVICE__ == false && empty($_COOKIE['rsakey'])) {
@@ -651,16 +680,32 @@ class MY_Controller extends REST_Controller {
    * ----------------------------------------------
    */
   private function _access_token_info() {
-    if(!$this->__ISSERVICE__) {
-      return $this;
+    $rules = $this->_get_rule();
+    $token = $this->__ISSERVICE__ ? $this->input->get_request_header('session_token') : (isset($_COOKIE['session_token']) ? $_COOKIE['session_token'] : null);
+    $is_check_auth = false;
+
+    if((empty($rules->authenticate) || !$rules->authenticate) && !$this->__IS_AUTH__) {
+      if($token == null) {
+        return true;
+      }
+    }
+
+    if((!empty($rules->authenticate) && $rules->authenticate) || $this->__IS_AUTH__) {
+      if(empty($token)) {
+        self::_error(self::SRV_AUTHENTICATION_INVALID, self::HTTP_UNAUTHORIZED);
+      }
+      else {
+        $is_check_auth = true;
+      }
     }
     
-    $token = $this->input->get_request_header('session_token');
+    
 
-    $token = json_decode(base64_decode($token), true);
+    $token = json_decode(base64_decode(urldecode($token)), true);
         
     // check token id
     if(!isset($token['session']) || !filter_var($token['session'], FILTER_VALIDATE_INT)) {
+
       $this->_error(self::SRV_NON_AUTHORITATIVE_INFORMATION, self::HTTP_OK);
     }
 
@@ -698,10 +743,16 @@ class MY_Controller extends REST_Controller {
 
     // get account info
     if ($token['account_id'] != 0) {
-      $account = $this->MAccount->account_id_exist_status(array('id' => $token['account_id']), 'active');
+      $account = $this->MAccount->account_id_exist_status($token['account_id'], 'active');
 
       if(!$account) {
         $this->_error(self::SRV_ACCOUNT_NOT_FOUND, self::HTTP_OK);
+      }
+
+      if(!empty($exist['password']) && $exist['password'] != $account->password && $is_check_auth) {
+        self::_error(self::SRV_PASSWORD_CHANGED, self::HTTP_UNAUTHORIZED);
+      }else {
+        unset($account->password);
       }
 
       $this->__ACCOUNT__ = $account;
@@ -772,6 +823,8 @@ class MY_Controller extends REST_Controller {
         $this->__ACCOUNT__ = $account;
       }
 
+      $token['end_time'] = end_date($exist['remember'], time(), $this->config->item('access_short_time'), $this->config->item('access_long_time'));
+
       $this->__TOKEN__ = $token;
 
       return true;
@@ -790,6 +843,49 @@ class MY_Controller extends REST_Controller {
       else {
         redirect('/app/user/signin');
       }
+    }
+  }
+
+  /**
+   * ----------------------------------------------
+   * Protect Permission
+   * ----------------------------------------------
+   */
+  protected function _protect_permission() {
+    $get_rules = $this->_get_rule();
+
+    if(empty($get_rules->authorize)) {
+      return true;
+    }
+
+    $rules = (object)$get_rules->authorize;
+
+    $filter = array();
+
+    if(!empty($rules->group)) {
+      $filter['group_name'] = ucwords(strtolower(preg_replace('/[\s]{2,}+/',' ',$rules->group)));
+    }
+
+    if(!empty($rules->role)) {
+      $filter['role_name'] = ucwords(strtolower(preg_replace('/[\s]{2,}+/',' ',$rules->role)));
+    }
+
+    if(!empty($rules->permission)) {
+      $filter['permission_name'] = strtoupper(preg_replace('/[\s]{1,}+/','_',$rules->permission));
+    }
+
+    if(!empty($rules->region)) {
+      $filter['region_name'] = ucwords(strtolower(preg_replace('/[\s]{2,}+/',' ',$rules->region)));
+    }
+
+    if(empty($filter)) {
+      return true;
+    }
+
+    $filter['account_id'] = $this->__ACCOUNT__->id;
+    
+    if(!$this->MUserPermission->exists($filter)) {
+      $this->_error(self::SRV_ACCOUNT_NON_PERMISSION, self::HTTP_OK);
     }
   }
 }

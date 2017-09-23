@@ -60,6 +60,7 @@ $lang['SRV-20007'] = 'Tài khoản đang trong thời gian chị án phạt';
 $lang['SRV-20008'] = 'Tài khoản đã bị khóa'; 
 $lang['SRV-20009'] = 'Mật khẩu không đúng'; 
 $lang['SRV-20010'] = 'Tài khoản đã đăng nhập'; 
+$lang['SRV-20011'] = 'Tài khoản không được phân quyền'; 
 
 /**
  * ------------------------------------------------

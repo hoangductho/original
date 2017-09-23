@@ -143,12 +143,12 @@ function PasswordHashing($password) {
  *
  * @param string url url to redirect
  */
-function redirect($url) {
-    ob_start();
-    header('Location: '.$url);
-    ob_end_flush();
-    // exit();
-}
+// function redirect($url) {
+//     ob_start();
+//     header('Location: '.$url);
+//     ob_end_flush();
+//     // exit();
+// }
 /**
 * 
 */

@@ -1,0 +1,98 @@
+<article class="hentry post">
+
+    <h1 class="page-title">About</h1>
+
+    <div class="entry-content">        
+
+        <p>Maecenas dolor est, interdum a euismod eu, accumsan posuere nisl. Nam sed iaculis massa. Sed nisl lectus, tempor sed euismod quis, sollicitudin nec est. Suspendisse dignissim bibendum tempor. Nam erat felis, commodo sed semper commodo vel mauris suspendisse dignissim bibendum tempus.</p>
+
+        <p>In ut odio libero, at vulputate urna. Nulla tristique mi a massa convallis cursus. Nulla eu mi magna. Etiam suscipit commodo gravida. Cras suscipit, quam vitae adipiscing faucibus, risus nibh laoreet odio, a porttitor metus eros ut enim. Morbi augue velit, tempus mattis dignissim nec, porta sed risus. Donec eget magna eu lorem tristique pellentesque eget eu dui. Fusce lacinia tempor malesuada. Ut lacus sapien, placerat a ornare nec, elementum sit amet felis. Maecenas pretium lorem hendrerit eros sagittis fermentum.</p>
+
+        <blockquote>Mauris aliquet ultricies ante, non faucibus ante gravida sed. Sed ultrices pellentesque purus, vulputate volutpat ipsum hendrerit sed neque sed sapien rutrum laoreet justo ultrices. In pellentesque lorem condimentum dui morbi pulvinar dui non quam pretium ut lacinia tortor.</blockquote>
+
+        <!-- <h3>Our Team</h3>									
+				
+		<div class="team-members">
+			<ul class="members clearfix">
+				<li class="member">
+					<div class="member-photo">
+						<img src="images/demo/member_1.jpg" alt="John Smith" style="">
+						<ul class="member-social clearfix">
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+					<div class="member-content">
+						<h3 class="member-name">John Smith</h3>
+						<p class="member-position">CEO</p>
+						<div class="member-desc"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum aliquam elit, vitae rhoncus nisi pharetra id. Curabitur a felis justo. Nunc odio est, mollis quis pharetra at, tempor nec urna.</p>
+						</div>
+					</div>
+				</li>
+				<li class="member">
+					<div class="member-photo">
+						<img src="images/demo/member_2.png" alt="Jessica Ivins">
+						<ul class="member-social clearfix">
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+					<div class="member-content">
+						<h3 class="member-name">Jessica Ivins</h3>
+						<p class="member-position">Editor in Chief</p>
+						<div class="member-desc"><p>Sed leo nunc, volutpat ac augue sed, faucibus elementum quam. Etiam sed ipsum porttitor, viverra nulla a, mattis neque. Integer scelerisque urna lacus, eu pretium dolor blandit.</p>
+						</div>
+					</div>
+				</li>
+				<li class="member">
+					<div class="member-photo">
+						<img src="images/demo/member_3.png" alt="Paul Jacobsen" style="">
+						<ul class="member-social clearfix">
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+					<div class="member-content">
+						<h3 class="member-name">Paul Jacobsen</h3>
+						<p class="member-position">Editor</p>
+						<div class="member-desc"><p>Nullam ut neque id augue pellentesque iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce ut odio vel massa ullamcorper vulputate eget in risus.</p>
+						</div>
+					</div>
+				</li>
+				<li class="member">
+					<div class="member-photo">
+						<img src="images/demo/member_4.png" alt="Katie Pilot">
+						<ul class="member-social clearfix">
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+					<div class="member-content">
+						<h3 class="member-name">Katie Pilot</h3>
+						<p class="member-position">Director of HR</p>
+						<div class="member-desc"><p>Curabitur suscipit sapien sagittis lacus commodo, nec suscipit mi porttitor. Mauris consectetur tellus in ligula auctor tempor. Integer ac tincidunt tortor. Cras eget lorem id lacus bibendum vestibulum in sed orci.</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div> -->
+
+    </div><!-- .entry-content -->
+
+</article>     

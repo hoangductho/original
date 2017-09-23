@@ -5,7 +5,7 @@ class MAccess extends MBase {
 	/**
 	 * Table name
 	 */
-	public $table = 'Access';
+	public $table = 'ACCESS';
 
 	// ----------------------------------------------------------------
 	/**

@@ -24,6 +24,20 @@ class MAccount extends MBase {
 
 	/**
 	 * --------------------------------------------
+	 * Get All Active User
+	 * --------------------------------------------
+	 */
+	public function getAllAccount() {
+		$filter = [
+			'deleted' => 0,
+			'status' => 1
+		];
+
+		return $this->get($filter);
+	}
+
+	/**
+	 * --------------------------------------------
 	 * Create Active Code
 	 * --------------------------------------------
 	 *
@@ -123,6 +137,30 @@ class MAccount extends MBase {
 			return true;
 		}
 	}
+	/**
+	 * --------------------------------------------
+	 * Change password
+	 * --------------------------------------------
+	 */
+	public function change_password($current, $password, $account_id) {
+		$filter = array(
+			'id' => $account_id, 
+			'password' => $current
+		);
+
+		$user = $this->exists($filter);
+
+		if($user) {
+			$update = $this->update(array('password' => $password), $filter);
+			if(!$update) {
+				$this->CI->_error($this->CI::SRV_ACCOUNT_ACTIVE_ERR, $this->CI::HTTP_OK);
+			}
+
+			return $update;
+		} else {
+			$this->CI->_error($this->CI::SRV_ACCOUNT_PASSWORD_INVALID, $this->CI::HTTP_OK);
+		}
+	}
 
 	/**
 	 * --------------------------------------------
@@ -178,7 +216,7 @@ class MAccount extends MBase {
 	 * @todo check account existed and compare account status with the status checking
 	 */
 	public function account_id_exist_status($id, $status) {
-		$exists = $this->MAccount->exists(array('id' => $id), array('id', 'email', 'firstname', 'lastname', 'status'));
+		$exists = $this->MAccount->exists(array('id' => $id), array('id', 'email', 'firstname', 'lastname', 'status', 'password'));
 
 		if(!$exists) {
 			$this->CI->_error($this->CI::SRV_ACCOUNT_NOT_FOUND, $this->CI::HTTP_OK);

@@ -7,7 +7,14 @@ class Categories extends MY_Controller {
     protected $__IS_AUTH__ = true;
     protected $__RULES__ = [
         'index' => [
+            
             'method' => 'GET',
+            'authorize' => [
+                'group' => 'System',
+                // 'role' => 'Admin',
+                'permission' => 'MANAGER_CATEGORY_EDIT',
+                // 'region' => null,
+            ],
             'data' => []
         ]
     ];
@@ -16,12 +23,17 @@ class Categories extends MY_Controller {
         parent::__construct();
 
         $layout_data = [
-            'title' => 'Categories'
+            'title' => 'Categories',
+            'javascript' => array(
+                1 => '/assets/js/vienvong/categories.js'
+            )
         ];
 
         // set layout
         $this->load->set_layout('active_layout.php');
         $this->load->layout($layout_data);
+
+        $this->load->model('MCategories');
     }
 
     /**
@@ -41,6 +53,8 @@ class Categories extends MY_Controller {
      */
     public function index()
     {
-        $this->load->render('Categories/categories');
+        $data['categories'] = $this->MCategories->getAllCategories();
+
+        $this->load->render('Categories/categories', $data);
     }
 }
