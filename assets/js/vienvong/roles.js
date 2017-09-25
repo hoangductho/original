@@ -18,6 +18,7 @@ function roles_success(response) {
         roles_reset_table();
         $('#role #message').html(message_success);
         $('#role')[0].reset();
+        location.reload();
       }else {
         $('#role #message').html("<span class='message-error'>" + response.message + "!</span>");
       }

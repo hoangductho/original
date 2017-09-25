@@ -18,6 +18,7 @@ function usergroups_success(response) {
         usergroups_reset_table();
         $('#usergroup #message').html(message_success);
         $('#usergroup')[0].reset();
+        location.reload();
       }else {
         $('#usergroup #message').html("<span class='message-error'>" + response.message + "!</span>");
       }

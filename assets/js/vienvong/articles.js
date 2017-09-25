@@ -123,7 +123,8 @@ function redact_success(response) {
       if(response.status) {
         articles_reset_table();
         $('#article #message').html(message_success);
-        $('#article')[0].reset();
+        // $('#article')[0].reset();
+        window.location.href = "/app/articles";
       }else {
         $('#article #message').html("<span class='message-error'>" + response.message + "!</span>");
       }

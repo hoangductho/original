@@ -16,7 +16,7 @@ function profiles_success(response) {
     if(response != null) {
       if(response.status) {
         $('#profile #message').html(message_success);
-        $('#profile')[0].reset();
+        // $('#profile')[0].reset();
       }else {
         $('#profile #message').html("<span class='message-error'>" + response.message + "!</span>");
       }

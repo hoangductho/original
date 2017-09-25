@@ -18,6 +18,7 @@ function categories_success(response) {
         categories_reset_table();
         $('#category #message').html(message_success);
         $('#category')[0].reset();
+        location.reload();
       }else {
         $('#category #message').html("<span class='message-error'>" + response.message + "!</span>");
       }
@@ -34,8 +35,8 @@ function categories_success(response) {
  * ------------------------------------------------
  */
 function categories_error(error) {
-  if(typeof response === 'object'){
-      error = JSON.parse(response.responseText);
+  if(typeof error === 'object'){
+      error = JSON.parse(error.responseText);
   }
 
   if(error != null && typeof error.message !== 'undefined') {

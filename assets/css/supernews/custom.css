@@ -13,3 +13,59 @@
 	max-height: 200px;
 	position: center;
 }
+
+#footer .entry-title a {
+	text-decoration: none !important;
+}
+
+.widget_newsletter button {
+    display: inline;
+}
+
+.featured-big .entry-thumbnail {
+	width: auto;
+	height: auto;
+	max-width: 472px;
+	max-height: 265px;
+	position: center;
+}
+.featured-small .entry-thumbnail {
+	width: auto;
+	height: auto;
+	max-width: 216px;
+	max-height: 121px;
+	position: center;
+}
+
+.editormd-html-preview, .editormd-preview-container {
+	padding: 0;
+}
+
+.markdown-body {
+	font-size: 15px;
+	text-align: justify;
+}
+
+.respond-form button {
+	display: inline-block !important;
+}
+
+.respond-form .gray-button {
+	line-height: 1;
+	padding: .5em .75em;
+	border: 0;
+	border-bottom: .24em solid #ccc;
+	border-radius: .125em;
+	font-size: 12px;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+	background: #ddd !important;
+	color: #999 !important;
+	-webkit-appearance: none;
+}
+
+.respond-form .gray-button:hover {
+	background: #999 !important;
+	border-bottom-color: #555;
+	color: #fff !important;
+}

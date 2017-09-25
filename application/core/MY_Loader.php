@@ -187,7 +187,8 @@ class MY_Loader extends HMVC_Loader {
   * @param $alias alias name for view in template
   */
   public function template_set_array($data) {
-    if(!empty($data))
-      array_merge($this->_TEMPLATE_DATA, $data);
+    if(!empty($data)) {
+      $this->_TEMPLATE_DATA = array_merge($this->_TEMPLATE_DATA, $data);
+    }
   }
 }

@@ -103,7 +103,7 @@ $autoload['helper'] = array('url', 'vurl');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array('dictionary');
+$autoload['config'] = array('dictionary', 'publish');
 
 /*
 | -------------------------------------------------------------------

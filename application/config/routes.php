@@ -66,6 +66,7 @@ $route['api/example/users/(:num)(\.)([a-zA-Z0-9_-]+)(.*)'] = 'api/example/users/
  * Publish Routes
  * ------------------------------------------------------------------------
  */
+$route['(:num)'] = 'publish/index/0/$1';
 $route['publish/(:num)/([a-zA-Z0-9_-]+)'] = 'publish/index/$1';
 $route['publish/(:num)/([a-zA-Z0-9_-]+)/(:num)'] = 'publish/index/$1/$3';
 $route['publish/detail/(:num)/([a-zA-Z0-9_-]+)'] = 'publish/detail/index/$1';

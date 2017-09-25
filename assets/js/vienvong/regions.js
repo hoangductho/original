@@ -18,6 +18,7 @@ function regions_success(response) {
         regions_reset_table();
         $('#region #message').html(message_success);
         $('#region')[0].reset();
+        location.reload();
       }else {
         $('#region #message').html("<span class='message-error'>" + response.message + "!</span>");
       }
@@ -34,8 +35,8 @@ function regions_success(response) {
  * ------------------------------------------------
  */
 function regions_error(error) {
-  if(typeof response === 'object'){
-      error = JSON.parse(response.responseText);
+  if(typeof error === 'object'){
+      error = JSON.parse(error.responseText);
   }
 
   if(error != null && typeof error.message !== 'undefined') {

@@ -16,11 +16,19 @@
 	<title>Viễn Vọng</title>
 
 	<!-- Stylesheets -->
+	<link rel="stylesheet" type="text/css" href="/assets/css/supernews/weather.css">	
 	<link rel="stylesheet" type="text/css" href="/assets/css/supernews/style.css">	
 	<link rel="stylesheet" type="text/css" href="/assets/css/supernews/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/supernews/prettyPhoto.css">	
 	<link rel="stylesheet" type="text/css" href="/assets/css/supernews/default.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/supernews/responsive.css">
+
+	<?php if(!empty($stylesheet)) {
+			foreach ($stylesheet as $key => $value) {	
+				echo '<link rel="stylesheet" type="text/css" href="'.$value.'">';
+			}
+		}?>
+
 	<link rel="stylesheet" type="text/css" href="/assets/css/supernews/custom.css">
 
 	<!-- Favicon -->
@@ -43,9 +51,12 @@
 				<!-- Primary Navigation / Start -->
 				<nav id="primary-nav">
 
-					<ul id="primary-menu" class="sf-menu sf-js-enabled sf-arrows">
-						<li><a href="/publish/about">About</a></li>			
-						<li><a href="http://dev.theme-junkie.com/html/supernews/typography.html">Typography</a></li>
+					<ul id="primary-menu" class="sf-menu sf-js-enabled sf-arrows">	
+						<li><a href="/publish/about">About</a></li>
+						<!-- <li><a href="#">Subscribe</a></li>													 -->
+						<li><a href="/publish/contact">Contact</a></li>
+						<!-- <li><a href="#">Advertise</a></li>							 -->
+						<li><a href="/publish/privacy">Privacy</a></li>
 					</ul>
 
 				</nav>
@@ -91,8 +102,8 @@
                     <i class="fa fa-times"></i>
 
 	                <div class="search-form">
-						<form action="search.html" id="searchform" method="get">
-							<input name="s" type="text">
+						<form action="/publish/search" id="searchform" method="post">
+							<input name="keyword" type="text">
 							<button type="submit">Search</button>
 						</form>
 					</div><!-- .search-form -->		  
@@ -106,6 +117,7 @@
 		<!-- Masthead / End -->
 
 		<!-- Site Main / Start -->
+
 		<?php if(!empty($this->_TEMPLATE_VIEW)) {$this->view($this->_TEMPLATE_VIEW, $this->_TEMPLATE_DATA);} ?>
 		<!-- Site Main / End -->
 		
@@ -115,10 +127,9 @@
 			<div class="footer-column footer-column-1">
 				<div class="widget">
 					<h3 class="widget-title">About</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
- eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-ex ea commodo consequat.</p>
+					<p>Thông tin là một nguồn tài nguyên, tài sản không giới hạn, không phân biệt biên giới, sắc tộc, tôn giáo. Tuy nhiên, thông tin chỉ có giá trị khi được xác thực, chọn lọc, đánh giá và đáng tin cậy.</p>
+		
+			        <blockquote>Thông tin giúp làm tăng hiểu biết của con người, là nguồn gốc của nhận thức và là cơ sở của quyết định.</blockquote>
 				</div><!-- .widget -->
 			</div><!-- .footer-column .footer-column-1 -->
 
@@ -126,33 +137,37 @@ ex ea commodo consequat.</p>
 				<div class="widget widget_posts_thumbnail">
 					<h3 class="widget-title">Popular Posts</h3>
 					<ul>
-						<?php 
-							for ($i=0; $i <3 ; $i++) { 
-								$this->view('homepage/quickview_bottom');
+						<?php if(!empty($populars)) {
+							foreach ($populars as $key => $value) {
+								$this->view('homepage/quickview_bottom', $value);
 							}
-						?>								
+						}?>								
 					</ul>
 				</div><!-- .widget .widget_posts_thumbnail -->
 			</div><!-- .footer-column .footer-column-2 -->
 
 			<div class="footer-column footer-column-3">
-			    <div class="widget widget_twitter">
-			        <h3 class="widget-title"><strong>Latest Tweets</strong></h3>
+			    <div class="widget">
+			        <h3 class="widget-title"><strong>Categories</strong></h3>
 			        <ul>
-			            <li>RT <a href="#">@envato</a>: <a href="#">#WordPress</a> 3.9.2 is now available as a security release. It is strongly advised to update immediately. <a href="#">http://t.co/PPcIPyrkZz</a> <span class="timestamp"><a href="#">3 hours ago</a></span></li>
-			            <li>Heatwave Offer. Sign up for an annual plan and get 3 months of free WP Engine <a href="#">#WordPress</a> hosting! Code: "HeatWave14" <a href="#">http://t.co/bsg79FCgvy</a> <span class="timestamp"><a href="#">1 day ago</a></span></li>       
+			            <?php if(isset($categories)) {
+			            	foreach ($categories as $key => $value) {
+			            		echo '<li class="entry-title"><a href="/publish/detail/'.$value['id'].'">'.$value['name'].'</a></li>';
+			            	}
+			            }?>
 			        </ul>
 				</div><!-- .widget .widget_twitter -->
 			</div><!-- .footer-column .footer-column-3 -->
 
 			<div class="footer-column footer-column-4">
 				<div class="widget widget_newsletter">
-					<h3 class="widget-title">Newsletter</h3>
+					<!-- <h3 class="widget-title">Newsletter</h3>
 					<p>Make sure you don't miss interesting happenings by joining our newsletter program. We don't do spam.</p>		
 					<form role="form">
 						<input placeholder="Enter your email..." type="text">
 						<button class="btn" type="button">Signup</button>
-					</form>     
+					</form>      -->
+					<div class="fb-page" data-href="https://www.facebook.com/VienVongCommunication/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/VienVongCommunication/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/VienVongCommunication/">Viễn vọng</a></blockquote></div>
 				</div><!-- .widget .widget_newsletter -->
 			</div><!-- .footer-column .footer-column-4 -->							
 
@@ -162,15 +177,15 @@ ex ea commodo consequat.</p>
 				<nav id="footer-nav">
 					<ul>
 						<li><a href="/publish/about">About</a></li>
-						<li><a href="#">Subscribe</a></li>													
-						<li><a href="#">Contact</a></li>
-						<li><a href="#">Advertise</a></li>							
-						<li><a href="#">Privacy</a></li>
+						<!-- <li><a href="#">Subscribe</a></li>													 -->
+						<li><a href="/publish/contact">Contact</a></li>
+						<!-- <li><a href="#">Advertise</a></li>							 -->
+						<li><a href="/publish/privacy">Privacy</a></li>
 					</ul>
 				</nav><!-- #footer-nav -->
 
 				<div class="copyright">
-					© 2014 <a href="http://dev.theme-junkie.com/html/supernews/index.html">SuperNews</a> · Designed by <a href="http://www.theme-junkie.com/">Theme Junkie</a>
+					© 2017 <a href="/">VienVong</a> · Founded by <a href="https://www.facebook.com/hoangbatho">Hoàng Đức Thọ</a>
 				</div><!-- .copyright -->
 
 			</div>
@@ -181,6 +196,8 @@ ex ea commodo consequat.</p>
 
 	</div>
 	<!-- Page / End -->
+
+	<div id="fb-root"></div>
 
 	<!-- JavaScripts -->
 	<!-- <script type="text/javascript" async="" src="/assets/images/ga.js"></script> -->
@@ -195,7 +212,22 @@ ex ea commodo consequat.</p>
 	<script type="text/javascript" src="/assets/js/supernews/jquery_006.js"></script>
 	<script type="text/javascript" src="/assets/js/supernews/jquery_003.js"></script>
 	<script type="text/javascript" src="/assets/js/supernews/jquery_007.js"></script>
+	<script type="text/javascript" src="/assets/lib/simpleweather/jquery.simpleWeather.min.js"></script>
+	<script type="text/javascript" src="/assets/js/vienvong/weather.js"></script>
 	<!-- <script type="text/javascript" src="/assets/images/analytics.js"></script> -->
+	<?php if(!empty($javascript)) {
+			foreach ($javascript as $key => $value) {	
+				echo '<script type="text/javascript" src="'.$value.'"></script>';
+			}
+		}?>
+
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=550251971759267";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 	<!-- FOR DEMO ONLY --> 
 
 

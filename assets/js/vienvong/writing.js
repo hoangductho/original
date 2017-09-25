@@ -80,7 +80,8 @@ function articles_success(response) {
     if(response != null) {
       if(response.status) {
         $('#article #message').html(message_success);
-        $('#article')[0].reset();
+        // $('#article')[0].reset();
+        window.location.href = "/app/writing/list";
       }else {
         $('#article #message').html("<span class='message-error'>" + response.message + "!</span>");
       }
@@ -96,10 +97,10 @@ function articles_success(response) {
  * Callback function when error
  * ------------------------------------------------
  */
-function articles_error(response) {
+function articles_error(error) {
 
-  if(typeof response === 'object'){
-      error = JSON.parse(response.responseText);
+  if(typeof error === 'object'){
+      error = JSON.parse(error.responseText);
   }
 
   if(error != null && typeof error.message !== 'undefined') {

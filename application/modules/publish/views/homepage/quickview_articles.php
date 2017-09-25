@@ -16,7 +16,7 @@
         <?php echo $description?>
     </div>
     <div class="more-link">
-        <a href="#">Read the rest of this entry</a>
-        <!-- <a href="/publish/detail/<?php echo $id . '/' . $friendly?>">Xem chi tiết</a> -->
+        <!-- <a href="#">Read the rest of this entry</a> -->
+        <a href="/publish/detail/<?php echo $id . '/' . $friendly?>">Xem chi tiết</a>
     </div><!-- .more-link -->	 	                    
 </article>

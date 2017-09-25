@@ -19,15 +19,40 @@ class Detail extends MY_Controller {
 		$layout_data = [
 			'title' => 'Articles',
 			'categories' => $this->MCategories->getActiveCategories(),
+			'populars' => $this->MArticles->getPopular(),
+			'stylesheet' => array(
+				0 => '/assets/lib/editormd/css/editormd.min.css',
+				1 => '/assets/css/vienvong/github-markdown.css'
+			),
 			'javascript' => array(
-                1 => '/assets/js/vienvong/articles.js'
+				0 => '/assets/lib/editormd/editormd.min.js',
+				1 => '/assets/lib/editormd/lib/codemirror/codemirror.min.js',
+                2 => '/assets/lib/editormd/lib/codemirror/modes.min.js',
+                3 => '/assets/lib/editormd/lib/codemirror/addons.min.js',
+                4 => '/assets/lib/editormd/lib/marked.min.js',
+                5 => '/assets/lib/editormd/lib/prettify.min.js',
+                6 => '/assets/lib/editormd/lib/raphael.min.js',
+                7 => '/assets/lib/editormd/lib/underscore.min.js',
+                8 => '/assets/lib/editormd/lib/sequence-diagram.min.js',
+                9 => '/assets/lib/editormd/lib/flowchart.min.js',
+                10 => '/assets/lib/editormd/lib/jquery.flowchart.min.js',
+                11 => '/assets/lib/editormd/lib/katex.min.js',
+
+                12 => '/assets/js/vienvong/common.js',
+                13 => '/assets/js/supernews/runtime.js'
             )
 		];
 
 		// set layout
 		$this->load->set_layout('publish_layout.php');
 		$this->load->layout($layout_data);
+
+		$template_data = [
+			'series' => $this->MSeries->getNewestSeries()
+		];
+		
 		$this->load->set_template('content_template');
+		$this->load->template($template_data);
 	}
 
 	/**
@@ -47,10 +72,13 @@ class Detail extends MY_Controller {
 	 */
 	public function index($id)
 	{
+		$detail = $this->MArticles->getByID($id);
 		$settings = array(
 			// 'categories' => $this->MCategories->getDictionaryCategories(),
-			// 'articles' => $this->MArticles->getArticles($filter)
+			'article' => $detail,
+			'relations' => $this->MArticles->getRelations($id, $detail['category_id'])
 		);
+
 		$this->load->render('detail/detail', $settings);
 	}
 }

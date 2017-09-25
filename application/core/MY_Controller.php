@@ -723,7 +723,7 @@ class MY_Controller extends REST_Controller {
     if(!isset($token['end_time']) || !filter_var($token['end_time'], FILTER_VALIDATE_INT)) {
       $this->_error(self::SRV_NON_AUTHORITATIVE_INFORMATION, self::HTTP_OK);
     } 
-    else if($token['end_time'] < time()) {
+    else if($this->__IS_AUTH__ && $token['end_time'] < time()) {
       $this->_error(self::SRV_AUTHENTICATION_TIMEOUT, self::HTTP_OK);
     }
 

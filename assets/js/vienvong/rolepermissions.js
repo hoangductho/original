@@ -18,6 +18,7 @@ function rolepermissions_success(response) {
         rolepermissions_reset_table();
         $('#rolepermission #message').html(message_success);
         $('#rolepermission')[0].reset();
+        location.reload();
       }else {
         $('#rolepermission #message').html("<span class='message-error'>" + response.message + "!</span>");
       }

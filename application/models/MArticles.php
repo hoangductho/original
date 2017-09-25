@@ -22,9 +22,8 @@ class MArticles extends MBase {
 	 * Get list data
 	 * --------------------------------------------
 	 */
-	public function getArticles($filter = array()) {
-		// var_dump($filter); exit();
-		return $this->get($filter);
+	public function getArticles($filter = array(), $page = null) {
+		return $this->get($filter, '*', $page);
 	}
 
 	/**
@@ -32,7 +31,7 @@ class MArticles extends MBase {
 	 * Filter Article
 	 * --------------------------------------------
 	 */
-	public function filterArticles($filter, $select = '*') {
+	public function filterArticles($filter, $page = 0, $select = '*') {
 		$where = array(
 			'deleted' => 0,
 			'privacy' => 1
@@ -63,6 +62,12 @@ class MArticles extends MBase {
 		if(is_array($select)) {
 			$select = implode(',', $select);
 		}
+
+		if(!empty($page)) {
+			$limit = $this->CI->config->item('limit');
+			$this->db->limit($limit, ($page - 1) * $limit);
+		}
+
 		// echo $this->db->select($select)->where($filter)->from($this->table)->get_compiled_select();
 		$query = $this->db->select($select)->from($this->table)->get();
 		// var_dump($this->db->last_query());
@@ -107,6 +112,70 @@ class MArticles extends MBase {
 		// echo $this->db->select($select)->where($filter)->from($this->table)->get_compiled_select();
 		$query = $this->db->select($select)->from($this->table)->get();
 		// var_dump($this->db->last_query());
+		return $query->result_array();
+	}
+	/**
+	 * --------------------------------------------
+	 * Get trending articles
+	 * --------------------------------------------
+	 */
+	public function getTrending($category_id = 0, $limit = 3) {
+		$filter = [
+			'status' => 1,
+			'privacy' => 1,
+			'result' => 1,
+			'popularity' => 3,
+			'deleted' => 0
+		];
+
+		if(filter_var($category_id, FILTER_VALIDATE_INT)) {
+			$filter['category_id'] = $category_id;
+		}
+
+		$query = $this->db->where($filter)->order_by('actived_date DESC')->limit($limit)->from($this->table)->get();
+
+		return $query->result_array();
+	}
+	/**
+	 * --------------------------------------------
+	 * Get trending articles
+	 * --------------------------------------------
+	 */
+	public function getPopular($category_id = 0, $limit = 3) {
+		$filter = [
+			'status' => 1,
+			'privacy' => 1,
+			'result' => 1,
+			'popularity' => 2,
+			'deleted' => 0
+		];
+
+		if(filter_var($category_id, FILTER_VALIDATE_INT)) {
+			$filter['category_id'] = $category_id;
+		}
+
+		$query = $this->db->where($filter)->order_by('actived_date DESC')->limit($limit)->from($this->table)->get();
+
+		return $query->result_array();
+	}
+
+	/**
+	 * --------------------------------------------
+	 * Get Relations of Article
+	 * --------------------------------------------
+	 */
+	public function getRelations($id, $category_id, $limit = 4) {
+		$filter = [
+			'status' => 1,
+			'privacy' => 1,
+			'result' => 1,
+			'deleted' => 0,
+			'category_id' => $category_id,
+			'id !=' => $id
+		];
+
+		$query = $this->db->where($filter)->order_by('actived_date DESC')->limit($limit)->from($this->table)->get();
+
 		return $query->result_array();
 	}
 }

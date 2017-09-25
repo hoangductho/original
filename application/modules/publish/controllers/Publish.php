@@ -58,8 +58,9 @@ class Publish extends MY_Controller {
 		parent::__construct();
 
 		$layout_data = [
-			'title' => 'Articles',
+			'title' => 'Viễn Vọng',
 			'categories' => $this->MCategories->getActiveCategories(),
+			'populars' => $this->MArticles->getPopular(),
 			'javascript' => array(
                 1 => '/assets/js/vienvong/articles.js'
             )
@@ -68,7 +69,13 @@ class Publish extends MY_Controller {
 		// set layout
 		$this->load->set_layout('publish_layout.php');
 		$this->load->layout($layout_data);
+
+		$template_data = [
+			'series' => $this->MSeries->getNewestSeries()
+		];
+		
 		$this->load->set_template('content_template');
+		$this->load->template($template_data);
 	}
 
 	/**
@@ -95,13 +102,15 @@ class Publish extends MY_Controller {
 			'deleted' => 0
 		];
 
-		if($category_id != null) {
+		if(!empty($category_id)) {
 			$filter['category_id'] = $category_id;
 		}
 
 		$settings = array(
 			// 'categories' => $this->MCategories->getDictionaryCategories(),
-			'articles' => $this->MArticles->getArticles($filter)
+			'articles' => $this->MArticles->getArticles($filter, $page),
+			'pages' => $this->MArticles->countPage($filter),
+			'trends' => $this->MArticles->getTrending($category_id),
 		);
 
 		$this->load->render('homepage/homepage', $settings);

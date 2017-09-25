@@ -18,6 +18,7 @@ function groups_success(response) {
         groups_reset_table();
         $('#group #message').html(message_success);
         $('#group')[0].reset();
+        location.reload();
       }else {
         $('#group #message').html("<span class='message-error'>" + response.message + "!</span>");
       }

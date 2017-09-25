@@ -18,6 +18,7 @@ function permissions_success(response) {
         permissions_reset_table();
         $('#permission #message').html(message_success);
         $('#permission')[0].reset();
+        location.reload();
       }else {
         $('#permission #message').html("<span class='message-error'>" + response.message + "!</span>");
       }

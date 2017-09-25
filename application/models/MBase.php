@@ -52,11 +52,17 @@ class MBase extends CI_Model {
 	 *
 	 * @return rows result
 	 */
-	public function get($filter, $select = '*') {
+	public function get($filter, $select = '*', $page = 1) {
 		// var_dump($filter);
 		if(is_array($select)) {
 			$select = implode(',', $select);
 		}
+
+		if(!empty($page)) {
+			$limit = $this->CI->config->item('limit');
+			$this->db->limit($limit, ($page - 1) * $limit);
+		}
+		
 		// echo $this->db->select($select)->where($filter)->from($this->table)->get_compiled_select(); exit();
 		$query = $this->db->select($select)->where($filter)->from($this->table)->get();
 		// var_dump($this->db->last_query());
@@ -164,5 +170,25 @@ class MBase extends CI_Model {
 	public function select_max($field, $alias = '', $filter = null) {
 		return $this->db->select_max($field)->where($filter)->from($this->table)->get();
 	}
+	// ----------------------------------------------------------------
+	/**
+	 * --------------------------------------------
+	 * Count number of Page
+	 * --------------------------------------------
+	 */
+	public function countPage($filter, $limit = 0) {
+		$page = 1;
 
+		if(empty($limit)) {
+			$limit = $this->CI->config->item('limit');
+		}
+
+		$query = $this->get($filter, 'count(ID) numbers');
+
+		if(!empty($query)) {
+			$page = ceil($query[0]['numbers'] / $limit);
+		}
+
+		return $page;
+	}
 }

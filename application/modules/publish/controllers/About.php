@@ -19,6 +19,7 @@ class About extends MY_Controller {
 		$layout_data = [
 			'title' => 'Articles',
 			'categories' => $this->MCategories->getActiveCategories(),
+			'populars' => $this->MArticles->getPopular(),
 			'javascript' => array(
                 1 => '/assets/js/vienvong/articles.js'
             )

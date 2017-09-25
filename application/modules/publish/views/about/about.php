@@ -1,14 +1,16 @@
 <article class="hentry post">
 
-    <h1 class="page-title">About</h1>
+    <h1 class="page-title">Giới thiệu</h1>
 
     <div class="entry-content">        
 
-        <p>Maecenas dolor est, interdum a euismod eu, accumsan posuere nisl. Nam sed iaculis massa. Sed nisl lectus, tempor sed euismod quis, sollicitudin nec est. Suspendisse dignissim bibendum tempor. Nam erat felis, commodo sed semper commodo vel mauris suspendisse dignissim bibendum tempus.</p>
+        <p>Thông tin là một nguồn tài nguyên, tài sản không giới hạn, không phân biệt biên giới, sắc tộc, tôn giáo. Tuy nhiên, thông tin chỉ có giá trị khi được xác thực, chọn lọc, đánh giá và đáng tin cậy.</p>
+		
+		<p>Viễn Vọng luôn cố gắng cung cấp, truyền tải tới bạn những thông tin hữu ích, chính xác, đáng tin cậy trong một thời đại internet với nhiều thông tin nhiễu, không đáng tin cậy.</p>
+		
+		<p>Trong quá trình hoạt động, không thể tránh khỏi có những thiếu xót, Viễn Vọng rất mong nhận được góp ý của các bạn để giúp chúng tôi hoàn thiện hoạt động.</p>
 
-        <p>In ut odio libero, at vulputate urna. Nulla tristique mi a massa convallis cursus. Nulla eu mi magna. Etiam suscipit commodo gravida. Cras suscipit, quam vitae adipiscing faucibus, risus nibh laoreet odio, a porttitor metus eros ut enim. Morbi augue velit, tempus mattis dignissim nec, porta sed risus. Donec eget magna eu lorem tristique pellentesque eget eu dui. Fusce lacinia tempor malesuada. Ut lacus sapien, placerat a ornare nec, elementum sit amet felis. Maecenas pretium lorem hendrerit eros sagittis fermentum.</p>
-
-        <blockquote>Mauris aliquet ultricies ante, non faucibus ante gravida sed. Sed ultrices pellentesque purus, vulputate volutpat ipsum hendrerit sed neque sed sapien rutrum laoreet justo ultrices. In pellentesque lorem condimentum dui morbi pulvinar dui non quam pretium ut lacinia tortor.</blockquote>
+        <blockquote>Thông tin giúp làm tăng hiểu biết của con người, là nguồn gốc của nhận thức và là cơ sở của quyết định.</blockquote>
 
         <!-- <h3>Our Team</h3>									
 				
