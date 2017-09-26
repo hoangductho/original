@@ -85,11 +85,11 @@ class MY_Controller extends REST_Controller {
   /**
    * Account info
    */
-  protected $__ACCOUNT__;
+  public $__ACCOUNT__;
   /**
    * Access token
    */
-  protected $__TOKEN__;
+  public $__TOKEN__;
   /**
    * Authenticate 
    */
@@ -116,11 +116,11 @@ class MY_Controller extends REST_Controller {
     // protected access
     $this->_access_token_info();
 
-    // check permission
-    $this->_protect_permission();
-
     // check authenticate
     $this->_check_auth();
+
+    // check permission
+    $this->_protect_permission();
 
     $this->load->__DICT__ = $this->config->item('dictionary');
   }
@@ -882,10 +882,14 @@ class MY_Controller extends REST_Controller {
       return true;
     }
 
-    $filter['account_id'] = $this->__ACCOUNT__->id;
+    if(!empty($this->__ACCOUNT__)) {
+      $filter['account_id'] = $this->__ACCOUNT__->id;
     
-    if(!$this->MUserPermission->exists($filter)) {
-      $this->_error(self::SRV_ACCOUNT_NON_PERMISSION, self::HTTP_OK);
+      if(!$this->MUserPermission->exists($filter)) {
+        $this->_error(self::SRV_ACCOUNT_NON_PERMISSION, self::HTTP_OK);
+      }
     }
+
+    return true;
   }
 }

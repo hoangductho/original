@@ -45,7 +45,7 @@
 
 										<div class="form-group">
 											<label>Từ khóa</label>
-											<input class="form-control" placeholder="Từ khóa trong bài viết" type="text" name='tags'  value="<?php echo $article['keyword'];?>">
+											<input class="form-control" placeholder="Từ khóa trong bài viết" type="text" name='keyword'  value="<?php echo $article['keyword'];?>">
 										</div>
 
 										<div class="form-group">

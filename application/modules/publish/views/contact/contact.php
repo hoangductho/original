@@ -1,11 +1,14 @@
 <div id="respond" class="comment-respond">
 
-	<h3 id="reply-title" class="comment-reply-title">Góp Ý</h3>
+	<h3 id="reply-title" class="comment-reply-title">Contact</h3>
 
-	<form action="#" method="post" id="commentform" class="comment-form respond-form">
-
+	<form id="commentform" class="comment-form respond-form">
 		<p class="comment-form-comment">
-			<textarea id="comment" name="comment" cols="45" rows="8"></textarea>
+			<label for="url"><i class="fa fa-pencil"></i> Title</label>
+			<input id="url" class="txt" name="title" type="text" value="" size="100">			
+		</p>
+		<p class="comment-form-comment">
+			<textarea id="comment" name="content" cols="45" rows="8" placeholder="Respond content"></textarea>
 		</p>	
 
 		<p class="comment-form-author">
@@ -20,14 +23,14 @@
 
 		<p class="comment-form-url">
 			<label for="url"><i class="fa fa-link"></i> Website</label>
-			<input id="url" class="txt" name="url" type="text" value="" size="30">			
+			<input id="url" class="txt" name="website" type="text" value="" size="30">			
 		</p>									
 
 		<div>
-			<button name="submit" type="submit" id="submit">Post Comment</button>
+			<button name="submit" type="button" id="submit" onclick="commentform_send()">Post Comment</button>
 			<button name="cancel" type="reset" id="cancel" class="gray-button">Cancel</button>
 		</div>
-
+		<div><p id="message"></p></div>
 	</form>
 
 </div>

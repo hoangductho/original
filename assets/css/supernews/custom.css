@@ -69,3 +69,12 @@
 	border-bottom-color: #555;
 	color: #fff !important;
 }
+
+/*message style*/
+.message-success, .success {
+	color: #33cc33;
+}
+
+.message-error, .error {
+	color: #ff4d4d;
+}

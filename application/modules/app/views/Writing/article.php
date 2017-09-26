@@ -41,7 +41,7 @@
 
 										<div class="form-group">
 											<label>Từ khóa</label>
-											<input class="form-control" placeholder="Từ khóa trong bài viết" type="text" name='tags'>
+											<input class="form-control" placeholder="Từ khóa trong bài viết" type="text" name='keyword'>
 										</div>
 
 										<div class="form-group">

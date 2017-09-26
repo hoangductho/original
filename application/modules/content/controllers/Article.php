@@ -76,6 +76,13 @@ class Article extends MY_Controller {
 						'regexp' => '/[:punct:\\p{L}]/'
 					]
 				],
+				'keyword' => [
+					'allow_null' => true,
+					'filter' => FILTER_VALIDATE_REGEXP,
+					'options' => [
+						'regexp' => '/[:punct:\\p{L}]{2,128}/'
+					]
+				],
 			]
 		],
 		'redact' => [
@@ -148,6 +155,13 @@ class Article extends MY_Controller {
 						'regexp' => '/[:punct:\\p{L}]/'
 					]
 				],
+				'keyword' => [
+					'allow_null' => true,
+					'filter' => FILTER_VALIDATE_REGEXP,
+					'options' => [
+						'regexp' => '/[:punct:\\p{L}]{2,128}/'
+					]
+				],
 				'actived_date' => [
 					'allow_null' => true,
 					'filter' => FILTER_VALIDATE_REGEXP,
@@ -203,6 +217,8 @@ class Article extends MY_Controller {
 
 		$this->getSeries($request->series);
 
+		$request->keyword = $this->MKeyword->addKeyword($request->keyword);
+
 		$request->category_id = $request->category;
 
 		unset($request->id);
@@ -246,6 +262,7 @@ class Article extends MY_Controller {
 		$request->series = ucwords(strtolower(preg_replace('/[\s]{2,}+/',' ',$request->series)));
 
 		$this->getSeries($request->series);
+		$request->keyword = $this->MKeyword->addKeyword($request->keyword);
 
 		if(empty($request->actived_date)) {
 			$request->actived_date = date('Y/m/d H:i:s');
@@ -256,12 +273,7 @@ class Article extends MY_Controller {
 		unset($request->id);
 		unset($request->category);
 
-		if($id == 0) {
-			$insert = $this->MArticles->insert($request);	
-		}
-		else {
-			$insert = $this->MArticles->update($request, array('id' => $id));	
-		}
+		$insert = $this->MArticles->update($request, array('id' => $id));
 		
 		// send mail to user
 		$this->response(json_encode(set_response_data($insert)));

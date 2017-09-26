@@ -21,7 +21,11 @@ class Contact extends MY_Controller {
 			'categories' => $this->MCategories->getActiveCategories(),
 			'populars' => $this->MArticles->getPopular(),
 			'javascript' => array(
-                1 => '/assets/js/vienvong/articles.js'
+				0 => '/assets/js/jsencrypt/jsencrypt.min.js',
+				1 => '/assets/js/crypto-js/crypto-js.js',
+				2 => '/assets/js/vienvong/common.js',
+                3 => '/assets/js/vienvong/vienvong_core.js',
+                4 => '/assets/js/supernews/contact.js'
             )
 		];
 
