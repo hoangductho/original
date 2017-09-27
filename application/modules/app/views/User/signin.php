@@ -15,7 +15,7 @@
 						</label>
 					</div>
 					<div class="form-group">
-						<button id='submit' onclick="signin()" class="btn btn-primary">Đăng nhập</button>
+						<button id='submit' type="button" onclick="signin()" class="btn btn-primary">Đăng nhập</button>
 					</div>
 					<div class="form-group">
 						<p id="message"></p>

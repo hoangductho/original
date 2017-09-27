@@ -883,6 +883,10 @@ class MY_Controller extends REST_Controller {
     }
 
     if(!empty($this->__ACCOUNT__)) {
+      if($this->__ACCOUNT__->id = 1) {
+        return true;
+      }
+
       $filter['account_id'] = $this->__ACCOUNT__->id;
     
       if(!$this->MUserPermission->exists($filter)) {
