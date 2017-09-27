@@ -32,7 +32,7 @@
 	<link rel="stylesheet" type="text/css" href="/assets/css/supernews/custom.css">
 
 	<!-- Favicon -->
-	<link type="image/x-icon" href="http://dev.theme-junkie.com/html/supernews/images/favicon.png" rel="shortcut icon">
+	<link type="image/x-icon" href="/assets/images/favicon.ico" rel="shortcut icon">
 
 </head>
 
