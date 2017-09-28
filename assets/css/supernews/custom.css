@@ -78,3 +78,14 @@
 .message-error, .error {
 	color: #ff4d4d;
 }
+
+#footer .widget_posts_thumbnail .entry-meta {
+	margin-left: 67px;
+}
+
+.related-posts .related-thumbnail {
+	height: 96px;
+	display: block;
+	overflow: hidden;
+	margin-bottom: 5px;
+}

@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('MBase', 'MAccess', 'MRsakey', 'MAccount', 'MCategories', 'MSeries', 'MRegions', 'MArticles', 'MGroups', 'MRoles', 'MGroupuser', 'MPermission', 'MRolePermission', 'MUserPermission', 'MRespond', 'MKeyword');
+$autoload['model'] = array('MBase', 'MAccess', 'MRsakey', 'MAccount', 'MCategories', 'MSeries', 'MRegions', 'MArticles', 'MGroups', 'MRoles', 'MGroupuser', 'MPermission', 'MRolePermission', 'MUserPermission', 'MRespond', 'MKeyword', 'MPublicArticles');

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>https://vienvong.com/</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://vienvong.com/publish/about</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://vienvong.com/publish/contact</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://vienvong.com/publish/privacy</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://vienvong.com/publish/1/tin-tuc</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://vienvong.com/publish/2/huong-dan</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://vienvong.com/publish/3/thiet-ke</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://vienvong.com/publish/4/goc-nhin</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://vienvong.com/publish/detail/3/phan-quyen-nguoi-dung-trong-mongodb</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://vienvong.com/publish/detail/2/lam-the-nao-de-day-source-code-len-git-server-</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://vienvong.com/publish/detail/1/ket-noi-git-server-cho-fedora-centos-rhel</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://vienvong.com/publish/detail/4/apache-khong-ghi-duoc-file-trong-thu-muc-phan-quyen-777</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://vienvong.com/publish/detail/5/cai-dat-vsftp-tren-server-fedora-centos-redhat</loc>
+  <changefreq>always</changefreq>
+</url>
+</urlset>

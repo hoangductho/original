@@ -60,7 +60,7 @@ class Publish extends MY_Controller {
 		$layout_data = [
 			'title' => 'Viễn Vọng',
 			'categories' => $this->MCategories->getActiveCategories(),
-			'populars' => $this->MArticles->getPopular(),
+			'populars' => $this->MPublicArticles->getPopular(),
 			'javascript' => array(
                 1 => '/assets/js/vienvong/articles.js'
             )
@@ -108,9 +108,9 @@ class Publish extends MY_Controller {
 
 		$settings = array(
 			// 'categories' => $this->MCategories->getDictionaryCategories(),
-			'articles' => $this->MArticles->getArticles($filter, $page),
-			'pages' => $this->MArticles->countPage($filter),
-			'trends' => $this->MArticles->getTrending($category_id),
+			'articles' => $this->MPublicArticles->getArticles($filter, $page),
+			'pages' => $this->MPublicArticles->countPage($filter),
+			'trends' => $this->MPublicArticles->getTrending($category_id),
 		);
 
 		$this->load->render('homepage/homepage', $settings);
@@ -126,7 +126,7 @@ class Publish extends MY_Controller {
 
 		$settings = array(
 			'categories' => $this->MCategories->getDictionaryCategories(),
-			'articles' => $this->MArticles->filterArticles($request)
+			'articles' => $this->MPublicArticles->filterArticles($request)
 		);
 		
 		$render = $this->load->view('Articles/list_articles', $settings, TRUE);

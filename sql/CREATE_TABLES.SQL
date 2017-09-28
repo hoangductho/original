@@ -278,3 +278,18 @@ CREATE VIEW IF NOT EXISTS USER_PERMISSION AS (
         AND re.deleted = 0
         AND re.status = 1
 );
+
+CREATE VIEW IF NOT EXISTS PUBLIC_ARTICLES AS (
+    SELECT ar.*, CONCAT_WS(' ',ac.lastname, ac.firstname) author, ca.name category_name, ca.friendly category_friendly
+    FROM ARTICLES ar, ACCOUNT ac, CATEGORIES ca
+    WHERE ar.category_id = ca.id
+        AND ar.account_id = ac.id
+        AND ar.deleted = 0
+        AND ar.result = 1
+        AND ar.privacy = 1
+        AND ar.status = 1
+        AND ca.deleted = 0
+        AND ac.status = 1
+        AND ac.deleted = 0
+        AND ca.status = 1
+);

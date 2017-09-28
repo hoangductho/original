@@ -685,9 +685,7 @@ class MY_Controller extends REST_Controller {
     $is_check_auth = false;
 
     if((empty($rules->authenticate) || !$rules->authenticate) && !$this->__IS_AUTH__) {
-      if($token == null) {
-        return true;
-      }
+      return true;
     }
 
     if((!empty($rules->authenticate) && $rules->authenticate) || $this->__IS_AUTH__) {

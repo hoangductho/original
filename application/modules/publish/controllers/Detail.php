@@ -19,7 +19,7 @@ class Detail extends MY_Controller {
 		$layout_data = [
 			'title' => 'Articles',
 			'categories' => $this->MCategories->getActiveCategories(),
-			'populars' => $this->MArticles->getPopular(),
+			'populars' => $this->MPublicArticles->getPopular(),
 			'stylesheet' => array(
 				0 => '/assets/lib/editormd/css/editormd.min.css',
 				1 => '/assets/css/vienvong/github-markdown.css'
@@ -72,11 +72,11 @@ class Detail extends MY_Controller {
 	 */
 	public function index($id)
 	{
-		$detail = $this->MArticles->getByID($id);
+		$detail = $this->MPublicArticles->getByID($id);
 		$settings = array(
 			// 'categories' => $this->MCategories->getDictionaryCategories(),
 			'article' => $detail,
-			'relations' => $this->MArticles->getRelations($id, $detail['category_id'])
+			'relations' => $this->MPublicArticles->getRelations($id, $detail['category_id'])
 		);
 
 		$this->load->render('detail/detail', $settings);

@@ -1,9 +1,15 @@
-<article class="hentry post">
-	<?php if(!empty($article)) {?>
+<?php if(!empty($article)) {?>
+	<div id="breadcrumbs-sticky-wrapper" class="sticky-wrapper" style="height: 27px;">
+		<div id="breadcrumbs">
+			<strong>You are here:</strong> <span class="home-link"><a href="/">Home</a></span> <span class="sep">→</span> <span class="category-link"><a href="/publish/<?php echo $article['category_id'] . '/' . $article['category_friendly']?>"><?php echo $article['category_name']?></a></span> <span class="sep">→</span> <span class="title">Just another example post</span>
+			<span class="post-nav see-all"><a href="/publish/<?php echo $article['category_id'] . '/' . $article['category_friendly']?>">More</a></span>
+		</div>
+	</div>
+	<article class="hentry post">
 		<h1 class="entry-title"><?php echo $article['title'];?></h1>
 
 		<div class="entry-meta">
-			<span class="entry-author"><i class="fa fa-user"></i> <a href="author.html">Paul Jacobsen</a></span>
+			<span class="entry-author"><i class="fa fa-user"></i> <a href="/">Viễn Vọng</a></span>
 			<span class="entry-date"><i class="fa fa-clock-o"></i> <?php echo $article['actived_date']?></span>
 			<!-- <span class="entry-comment"><i class="fa fa-comments"></i> <a href="#comments">6 Comments</a></span> -->
 			<!-- <span class="entry-tags"><i class="fa fa-tags"></i> <a href="#">Lorem</a>, <a href="#">ipsum</a></span>						 -->
@@ -28,7 +34,7 @@
 	    	<ul class="clearfix">
 	    		<?php if(!empty($relations)) {
 	    			foreach ($relations as $key => $value) {
-	    				echo '<li><a href="/publish/detail/'.$value['id'] . '/' . $value['friendly'] .'"><img src="'.$value['image'].'" alt=""><h2 class="entry-title">'.$value['title'].'</h2></a></li>';
+	    				echo '<li><a href="/publish/detail/'.$value['id'] . '/' . $value['friendly'] .'"><div class="related-thumbnail"><img src="'.$value['image'].'" alt=""></div><h2 class="entry-title">'.$value['title'].'</h2></a></li>';
 	    			}
 	    		}?>
 	    				        
@@ -36,8 +42,8 @@
 	    </div><!-- .related-posts -->						
 
 		<div class="clearfix"></div>
-	<?php }?>
-</article>
+	</article>
+<?php }?>
 
 <?php //$this->view('detail/comment');?>
 <?php //$this->view('detail/respond');?>

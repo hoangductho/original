@@ -19,7 +19,7 @@ class Privacy extends MY_Controller {
 		$layout_data = [
 			'title' => 'Privacy',
 			'categories' => $this->MCategories->getActiveCategories(),
-			'populars' => $this->MArticles->getPopular(),
+			'populars' => $this->MPublicArticles->getPopular(),
 			'javascript' => array(
                 1 => '/assets/js/vienvong/articles.js'
             )
@@ -50,7 +50,7 @@ class Privacy extends MY_Controller {
 	{
 		$settings = array(
 			// 'categories' => $this->MCategories->getDictionaryCategories(),
-			// 'articles' => $this->MArticles->getArticles($filter)
+			// 'articles' => $this->MPublicArticles->getArticles($filter)
 		);
 		$this->load->render('privacy/privacy', $settings);
 	}

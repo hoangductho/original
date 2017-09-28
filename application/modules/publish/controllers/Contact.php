@@ -19,7 +19,7 @@ class Contact extends MY_Controller {
 		$layout_data = [
 			'title' => 'Contact',
 			'categories' => $this->MCategories->getActiveCategories(),
-			'populars' => $this->MArticles->getPopular(),
+			'populars' => $this->MPublicArticles->getPopular(),
 			'javascript' => array(
 				0 => '/assets/js/jsencrypt/jsencrypt.min.js',
 				1 => '/assets/js/crypto-js/crypto-js.js',
@@ -54,7 +54,7 @@ class Contact extends MY_Controller {
 	{
 		$settings = array(
 			// 'categories' => $this->MCategories->getDictionaryCategories(),
-			// 'articles' => $this->MArticles->getArticles($filter)
+			// 'articles' => $this->MPublicArticles->getArticles($filter)
 		);
 		$this->load->render('contact/contact', $settings);
 	}

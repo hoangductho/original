@@ -28,7 +28,7 @@ class Search extends MY_Controller {
 		$layout_data = [
 			'title' => 'Viễn Vọng',
 			'categories' => $this->MCategories->getActiveCategories(),
-			'populars' => $this->MArticles->getPopular(),
+			'populars' => $this->MPublicArticles->getPopular(),
 			'javascript' => array(
                 1 => '/assets/js/vienvong/articles.js'
             )
@@ -73,8 +73,8 @@ class Search extends MY_Controller {
 
 		$settings = array(
 			// 'categories' => $this->MCategories->getDictionaryCategories(),
-			'articles' => $this->MArticles->getArticles($filter, $page),
-			'pages' => $this->MArticles->countPage($filter),
+			'articles' => $this->MPublicArticles->getArticles($filter, $page),
+			'pages' => $this->MPublicArticles->countPage($filter),
 			'keyword' => $this->__REQUEST_DATA__->keyword,
 		);
 
