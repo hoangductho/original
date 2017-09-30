@@ -314,7 +314,7 @@ class MY_Controller extends REST_Controller {
       $access_token = $this->MAccess->exists($where, 'id, ip, account_id, password');
       // check authenticate
       if(!$access_token) {
-        var_dump($access_token, $authInfo);
+
         self::_error(self::SRV_AUTHENTICATION_INVALID, self::HTTP_UNAUTHORIZED);
       }
       // get user info
@@ -685,7 +685,7 @@ class MY_Controller extends REST_Controller {
     $is_check_auth = false;
 
     if((empty($rules->authenticate) || !$rules->authenticate) && !$this->__IS_AUTH__) {
-      return true;
+      $is_check_auth = true;
     }
 
     if((!empty($rules->authenticate) && $rules->authenticate) || $this->__IS_AUTH__) {
@@ -702,26 +702,26 @@ class MY_Controller extends REST_Controller {
     $token = json_decode(base64_decode(urldecode($token)), true);
         
     // check token id
-    if(!isset($token['session']) || !filter_var($token['session'], FILTER_VALIDATE_INT)) {
+    if((!isset($token['session']) || !filter_var($token['session'], FILTER_VALIDATE_INT)) && $is_check_auth) {
 
       $this->_error(self::SRV_NON_AUTHORITATIVE_INFORMATION, self::HTTP_OK);
     }
 
     // check account id
-    if(!isset($token['account_id']) || filter_var($token['account_id'], FILTER_VALIDATE_INT) === false) {
+    if((!isset($token['account_id']) || filter_var($token['account_id'], FILTER_VALIDATE_INT) === false) && $is_check_auth) {
       $this->_error(self::SRV_NON_AUTHORITATIVE_INFORMATION, self::HTTP_OK);
     }    
 
     // check created time
-    if(!isset($token['created_time']) || !filter_var($token['created_time'], FILTER_VALIDATE_INT)) {
+    if((!isset($token['created_time']) || !filter_var($token['created_time'], FILTER_VALIDATE_INT)) && $is_check_auth) {
       $this->_error(self::SRV_NON_AUTHORITATIVE_INFORMATION, self::HTTP_OK);
     }
 
     // check expired time
-    if(!isset($token['end_time']) || !filter_var($token['end_time'], FILTER_VALIDATE_INT)) {
+    if((!isset($token['end_time']) || !filter_var($token['end_time'], FILTER_VALIDATE_INT)) && $is_check_auth) {
       $this->_error(self::SRV_NON_AUTHORITATIVE_INFORMATION, self::HTTP_OK);
     } 
-    else if($this->__IS_AUTH__ && $token['end_time'] < time()) {
+    else if($this->__IS_AUTH__ && $token['end_time'] < time() && $is_check_auth) {
       $this->_error(self::SRV_AUTHENTICATION_TIMEOUT, self::HTTP_OK);
     }
 
@@ -735,7 +735,7 @@ class MY_Controller extends REST_Controller {
     $exist = $exist[0];
 
     // check token info
-    if(!$exist || hash($exist['algorithm'], $exist['token']) != $token['token']) {
+    if((!$exist || hash($exist['algorithm'], $exist['token']) != $token['token']) && $is_check_auth) {
       $this->_error(self::SRV_AUTHENTICATION_INVALID, self::HTTP_OK);
     }
 
@@ -743,7 +743,7 @@ class MY_Controller extends REST_Controller {
     if ($token['account_id'] != 0) {
       $account = $this->MAccount->account_id_exist_status($token['account_id'], 'active');
 
-      if(!$account) {
+      if(!$account && $is_check_auth) {
         $this->_error(self::SRV_ACCOUNT_NOT_FOUND, self::HTTP_OK);
       }
 
