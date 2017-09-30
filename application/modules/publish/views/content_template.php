@@ -20,7 +20,11 @@
 	            <li><a href="#" title="GooglePlus"><i class="fa fa-google-plus"></i><span><strong>1,300</strong></span><span>In Circle</span></a></li>
 	            <li><a href="#" title="RSS"><i class="fa fa-rss"></i><span><strong>20,000</strong></span><span>Subscribers</span></a></li>
 	        </ul> -->
-	        <div class="fb-like" data-href="<?php echo 'http://vienvong.com/' . ($this->uri->segment(2) == 'detail' ? $this->uri->uri_string : null)?>" data-width="300" data-layout="box_count" data-action="like" data-size="large" data-show-faces="true" data-share="false"></div>
+	        <?php if($this->uri->segment(2) == 'detail') {?>
+	        	<div class="fb-like" data-href="<?php echo '/' . $this->uri->uri_string;?>" data-width="300" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+	        <?php } else {?>
+	        	<div class="fb-follow" data-href="https://www.facebook.com/vienvong.vn/" data-layout="box_count" data-size="small" data-show-faces="true"></div>
+	        <?php }?>
 	    </div><!-- .widget .widget_social -->
 
 	    <div class="widget widget_weather">

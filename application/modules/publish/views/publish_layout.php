@@ -167,7 +167,7 @@
 						<input placeholder="Enter your email..." type="text">
 						<button class="btn" type="button">Signup</button>
 					</form>      -->
-					<div class="fb-page" data-href="https://www.facebook.com/VienVongCommunication/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/VienVongCommunication/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/VienVongCommunication/">Viễn vọng</a></blockquote></div>
+					<div class="fb-page" data-href="https://www.facebook.com/vienvong.vn/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/vienvong.vn/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/vienvong.vn/">Viễn vọng</a></blockquote></div>
 				</div><!-- .widget .widget_newsletter -->
 			</div><!-- .footer-column .footer-column-4 -->							
 
