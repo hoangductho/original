@@ -23,6 +23,7 @@ class MArticles extends MBase {
 	 * --------------------------------------------
 	 */
 	public function getArticles($filter = array(), $page = null) {
+		$this->db->order_by('created_date DESC');
 		return $this->get($filter, '*', $page);
 	}
 

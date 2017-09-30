@@ -23,6 +23,7 @@ class MPublicArticles extends MBase {
 	 * --------------------------------------------
 	 */
 	public function getArticles($filter = array(), $page = null) {
+		$this->db->order_by('actived_date DESC');
 		return $this->get($filter, '*', $page);
 	}
 
