@@ -10,10 +10,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="description" content="An Unlimited WordPress News &amp; Magazine Theme with WooCommerce Support">
 	<meta name="keywords" content="magazine template, news template">
-	<meta name="author" content="themejunkie">
+	<meta name="author" content="Viễn Vọng">
 
+	<meta name="description" content="<?php echo isset($description) ? $description : null; ?>">
+    <meta name="keywords" content="<?php echo isset($keyword) ? $keyword : null; ?>">
+
+    <meta property="og:title" content="<?php echo isset($title) ? $title : 'Viễn Vọng'?>"/>
+    <meta property="og:description" content="<?php echo isset($description) ? $description : null; ?>"/>
+    <meta property="og:image" content="<?php echo isset($image) ? $image : null; ?>"/>
+    <meta property="og:url" content="<?php echo 'https://vienvong.com/publish/detail/' . $id . '/' . $friendly; ?>"/>
+    <meta property="og:site_name" content="Viễn Vọng"/>
+    <meta property="fb:app_id" content="550251971759267"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:locale:alternate" content="vi_VI"/>
+    <meta property="article:author" content="https://vienvong.com"/>
 	<!-- Title -->
-	<title>Viễn Vọng</title>
+	<title><?php echo isset($title) ? $title : 'Viễn Vọng'?></title>
 
 	<!-- Stylesheets -->
 	<link rel="stylesheet" type="text/css" href="/assets/css/supernews/weather.css">	

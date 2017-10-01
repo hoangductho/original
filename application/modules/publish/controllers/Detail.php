@@ -79,6 +79,11 @@ class Detail extends MY_Controller {
 			'relations' => $this->MPublicArticles->getRelations($id, $detail['category_id'])
 		);
 
+		$layout_data = [
+			'title' => $detail['title'],
+		];
+		$this->load->layout($detail);
+		
 		$this->load->render('detail/detail', $settings);
 	}
 }
