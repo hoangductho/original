@@ -13,15 +13,15 @@
 	<meta name="description" content="<?php echo isset($description) ? $description : null; ?>">
     <meta name="keywords" content="<?php echo isset($keyword) ? $keyword : null; ?>">
 
-    <meta property="og:title" content="<?php echo isset($title) ? $title : 'Viễn Vọng'?>"/>
-    <meta property="og:description" content="<?php echo isset($description) ? $description : null; ?>"/>
-    <meta property="og:image" content="<?php echo isset($image) ? $image : null; ?>"/>
-    <meta property="og:url" content="<?php echo isset($id) ? 'https://vienvong.com/publish/detail/' . $id . '/' . $friendly : 'https://vienvong.com'; ?>"/>
-    <meta property="og:site_name" content="Viễn Vọng"/>
-    <meta property="fb:app_id" content="550251971759267"/>
-    <meta property="og:type" content="article"/>
-    <meta property="og:locale:alternate" content="vi_VI"/>
-    <meta property="article:author" content="https://vienvong.com"/>
+    <meta property="og:title" content="<?php echo isset($title) ? $title : 'Viễn Vọng'?>">
+    <meta property="og:description" content="<?php echo isset($description) ? $description : null; ?>">
+    <meta property="og:image" content="<?php echo isset($image) ? $image : null; ?>">
+    <meta property="og:url" content="<?php echo isset($id) ? 'https://vienvong.com/publish/detail/' . $id . '/' . $friendly : 'https://vienvong.com'; ?>">
+    <meta property="og:site_name" content="Viễn Vọng">
+    <meta property="fb:app_id" content="550251971759267">
+    <meta property="og:type" content="article">
+    <meta property="og:locale:alternate" content="vi_VI">
+    <meta property="article:author" content="https://vienvong.com">
 	<!-- Title -->
 	<title><?php echo isset($title) ? $title : 'Viễn Vọng'?></title>
 

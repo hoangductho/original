@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Contact extends MY_Controller {
+class Contact extends CI_Controller {
 	protected $__ISSERVICE__ = false;
 	protected $__IS_AUTH__ = false;
 	protected $__RULES__ = [

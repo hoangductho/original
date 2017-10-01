@@ -38,9 +38,9 @@ class Article extends MY_Controller {
 				],
 				'image' => [
 					'allow_null' => false,
-					'filter' => FILTER_VALIDATE_URL,
+					'filter' => FILTER_VALIDATE_REGEXP,
 					'options' => [
-						
+						'regexp' => '/[A-Za-z0-9+/]/'
 					]
 				],
 				'series' => [
@@ -117,9 +117,9 @@ class Article extends MY_Controller {
 				],
 				'image' => [
 					'allow_null' => false,
-					'filter' => FILTER_VALIDATE_URL,
+					'filter' => FILTER_VALIDATE_REGEXP,
 					'options' => [
-						
+						'regexp' => '/[A-Za-z0-9+/]/'
 					]
 				],
 				'series' => [
@@ -182,7 +182,6 @@ class Article extends MY_Controller {
 
 	public function __construct() {
 		parent::__construct();
-
 		// set layout
 		$this->load->set_layout('active_layout.php');
 	}
@@ -223,6 +222,10 @@ class Article extends MY_Controller {
 
 		unset($request->id);
 		unset($request->category);
+
+		var_dump($_FILES);
+
+		$this->do_upload('image');
 
 		if($id == 0) {
 			$insert = $this->MArticles->insert($request);	
@@ -318,4 +321,15 @@ class Article extends MY_Controller {
 			}
 		}
 	}
+
+	private function do_upload($data64, $path = null)
+    {
+    	list($type, $data) = explode(';', $data64);
+		list(, $data)      = explode(',', $data);
+		$decoded = base64_decode($data);
+		$name = md5($data64);
+
+    	$path = APPPATH . '..' . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . $path . DIRECTORY_SEPARATOR . $name;
+        file_put_contents($path, $decoded);
+    }
 }

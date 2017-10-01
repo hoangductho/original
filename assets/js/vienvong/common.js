@@ -237,7 +237,7 @@ function markdown_render(source, target) {
     //         //alert(testEditormdView.getMarkdown());
     //     });
 
-  if($('#' + source).text().length) {
+    if($('#' + source).text().length) {
       var Render = editormd.markdownToHTML(target, {
         markdown        : $('#' + source).text(),
         // width             : "100%",
@@ -255,4 +255,17 @@ function markdown_render(source, target) {
         sequenceDiagram   : true,
       });
     }
+}
+
+/**
+ * ------------------------------------------------
+ * Get Base64 data of file input
+ * ------------------------------------------------
+ */
+function getFileBase64(file, success, error) {
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = success;
+    reader.onerror = error;
+    // reader.readAsText(file);
 }

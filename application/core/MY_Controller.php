@@ -197,7 +197,7 @@ class MY_Controller extends REST_Controller {
    */
   public function _function_error($message) {
     // Set the response and exit
-    $this->response(set_response_data(FALSE, SRV_DATA_INVALID, $message), 200); // NOT_FOUND (404) being the HTTP response code
+    $this->response(set_response_data(FALSE, self::SRV_DATA_INVALID, $message), 200); // NOT_FOUND (404) being the HTTP response code
     exit();
   }
 
@@ -684,9 +684,9 @@ class MY_Controller extends REST_Controller {
     $token = $this->__ISSERVICE__ ? $this->input->get_request_header('session_token') : (isset($_COOKIE['session_token']) ? $_COOKIE['session_token'] : null);
     $is_check_auth = false;
 
-    if((empty($rules->authenticate) || !$rules->authenticate) && !$this->__IS_AUTH__) {
-      $is_check_auth = true;
-    }
+    // if((empty($rules->authenticate) || !$rules->authenticate) && !$this->__IS_AUTH__) {
+    //   $is_check_auth = true;
+    // }
 
     if((!empty($rules->authenticate) && $rules->authenticate) || $this->__IS_AUTH__) {
       if(empty($token)) {
@@ -881,7 +881,7 @@ class MY_Controller extends REST_Controller {
     }
 
     if(!empty($this->__ACCOUNT__)) {
-      if($this->__ACCOUNT__->id = 1) {
+      if($this->__ACCOUNT__->id == 1) {
         return true;
       }
 

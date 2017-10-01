@@ -19,7 +19,8 @@
 										
 										<div class="form-group" >
 											<label>Ảnh minh họa</label>
-											<input id='avatar' class="form-control" placeholder="Link ảnh" type="url" name='image'>
+											<input id='avatar' class="form-control" placeholder="Link ảnh" type="file" name=''>
+											<input id='avatar64' placeholder="Data Base64" type="text" name='image' hidden>
 											<br>
 											<img id='avatar-show' src="" alt="" width="240" height="135" style="display: block;">
 										</div>

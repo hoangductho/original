@@ -19,7 +19,8 @@
 										
 										<div class="form-group" >
 											<label>Ảnh minh họa</label>
-											<input id='avatar' class="form-control" placeholder="Link ảnh" type="url" name='image' value="<?php echo $article['image'];?>">
+											<!-- <input id='avatar' class="form-control" placeholder="Link ảnh" type="url" name='image' value="<?php echo $article['image'];?>"> -->
+											<input id='avatar' class="form-control" placeholder="Link ảnh" type="file" name='image'>
 											<br>
 											<img id='avatar-show' src="<?php echo $article['image'];?>" alt="" width="240" height="135">
 										</div>
