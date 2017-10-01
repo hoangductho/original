@@ -40,7 +40,7 @@ class Article extends MY_Controller {
 					'allow_null' => false,
 					'filter' => FILTER_VALIDATE_REGEXP,
 					'options' => [
-						'regexp' => '/[A-Za-z0-9+/]/'
+						'regexp' => '/[A-Za-z0-9.-_+\/]/'
 					]
 				],
 				'series' => [
@@ -223,9 +223,14 @@ class Article extends MY_Controller {
 		unset($request->id);
 		unset($request->category);
 
-		var_dump($_FILES);
+		$upload = upload_base64($request->image);
 
-		$this->do_upload('image');
+		if($upload) {
+			$request->image = $upload;
+		}
+		else {
+			$this->response(json_encode(set_response_data($insert, 200, 'upload image error!')));	
+		}
 
 		if($id == 0) {
 			$insert = $this->MArticles->insert($request);	
@@ -276,6 +281,15 @@ class Article extends MY_Controller {
 		unset($request->id);
 		unset($request->category);
 
+		$upload = upload_base64($request->image);
+
+		if($upload) {
+			$request->image = $upload;
+		}
+		else {
+			$this->response(json_encode(set_response_data($insert, 200, 'upload image error!')));	
+		}
+
 		$insert = $this->MArticles->update($request, array('id' => $id));
 		
 		// send mail to user
@@ -321,15 +335,4 @@ class Article extends MY_Controller {
 			}
 		}
 	}
-
-	private function do_upload($data64, $path = null)
-    {
-    	list($type, $data) = explode(';', $data64);
-		list(, $data)      = explode(',', $data);
-		$decoded = base64_decode($data);
-		$name = md5($data64);
-
-    	$path = APPPATH . '..' . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . $path . DIRECTORY_SEPARATOR . $name;
-        file_put_contents($path, $decoded);
-    }
 }
