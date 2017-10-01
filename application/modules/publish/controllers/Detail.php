@@ -39,7 +39,7 @@ class Detail extends CI_Controller {
                 11 => '/assets/lib/editormd/lib/katex.min.js',
 
                 12 => '/assets/js/vienvong/common.js',
-                // 13 => '/assets/js/supernews/runtime.js'
+                13 => '/assets/js/supernews/runtime.js'
             )
 		];
 
