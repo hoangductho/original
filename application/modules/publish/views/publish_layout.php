@@ -18,7 +18,7 @@
     <meta property="og:title" content="<?php echo isset($title) ? $title : 'Viễn Vọng'?>"/>
     <meta property="og:description" content="<?php echo isset($description) ? $description : null; ?>"/>
     <meta property="og:image" content="<?php echo isset($image) ? $image : null; ?>"/>
-    <meta property="og:url" content="<?php echo 'https://vienvong.com/publish/detail/' . $id . '/' . $friendly; ?>"/>
+    <meta property="og:url" content="<?php echo isset($id) ? 'https://vienvong.com/publish/detail/' . $id . '/' . $friendly : 'https://vienvong.com'; ?>"/>
     <meta property="og:site_name" content="Viễn Vọng"/>
     <meta property="fb:app_id" content="550251971759267"/>
     <meta property="og:type" content="article"/>
