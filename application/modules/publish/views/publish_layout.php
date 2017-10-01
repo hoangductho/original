@@ -4,27 +4,24 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js"><!--<![endif]--><head>
+	<!-- Title -->
+	<title><?php echo isset($title) ? $title : 'Viễn Vọng'?></title>
 
 	<!-- Meta -->
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="author" content="Viễn Vọng">
-
 	<meta name="description" content="<?php echo isset($description) ? $description : null; ?>">
     <meta name="keywords" content="<?php echo isset($keyword) ? $keyword : null; ?>">
-
+    <meta property="fb:app_id" content="550251971759267">
+    <meta property="og:site_name" content="Viễn Vọng">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="<?php echo $this->uri->uri_string;?>">
     <meta property="og:title" content="<?php echo isset($title) ? $title : 'Viễn Vọng'?>">
     <meta property="og:description" content="<?php echo isset($description) ? $description : null; ?>">
-    <meta property="og:image" content="<?php echo isset($image) ? $image : null; ?>">
-    <meta property="og:url" content="<?php echo isset($id) ? 'https://vienvong.com/publish/detail/' . $id . '/' . $friendly : 'https://vienvong.com'; ?>">
-    <meta property="og:site_name" content="Viễn Vọng">
-    <meta property="fb:app_id" content="550251971759267">
-    <meta property="og:type" content="article">
-    <meta property="og:locale:alternate" content="vi_VI">
-    <meta property="article:author" content="https://vienvong.com">
-	<!-- Title -->
-	<title><?php echo isset($title) ? $title : 'Viễn Vọng'?></title>
-
+    <meta property="og:image" content="<?php echo 'https://vienvong.com' . (isset($image) ? $image : '/assets/images/logo.png'); ?>">
+    <!-- <meta property="og:locale:alternate" content="vi_VI"> -->
+    <meta property="article:author" content="https://vienvong.com">	
 	<!-- Stylesheets -->
 	<link rel="stylesheet" type="text/css" href="/assets/css/supernews/weather.css">	
 	<link rel="stylesheet" type="text/css" href="/assets/css/supernews/style.css">	
@@ -79,9 +76,9 @@
 				<!-- <h1 class="site-title"><a href="index.html">SuperNews</a></h1> -->
 			</div>
 
-			<div class="header-ad">
+			<!-- <div class="header-ad">
 				<a href="#"><img src="/assets/images/728x90.png" alt=""></a>
-			</div>
+			</div> -->
 
 			<div class="clearfix"></div>
 

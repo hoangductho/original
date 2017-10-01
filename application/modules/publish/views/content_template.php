@@ -9,10 +9,10 @@
 	<!-- Sidebar #2 / Start -->
 	<div id="secondary" class="widget-area widget-primary sidebar2 column" role="complementary" style="height: 3209px;">
 
-	    <div class="widget widget_ads">
+	    <!-- <div class="widget widget_ads">
 	        <h3 class="widget-title">Advertisement</h3>
 	        <a href="http://www.theme-junkie.com/" target="_blank"><img src="/assets/images/ad_300x250.png" alt="Ad Widget"></a>
-	    </div><!-- .widget .widget_ads -->
+	    </div> --><!-- .widget .widget_ads -->
 	    <div class="widget widget_social clearfix">
 	        <!-- <ul>
 	            <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i><span><strong>5,600</strong></span><span>Followers</span></a></li>
@@ -45,10 +45,10 @@
 	        </div>
 	    </div> --><!-- .widget .widget_newsletter -->
 	    
-	    <div class="widget widget_ads">
+	    <!-- <div class="widget widget_ads">
 	        <h3 class="widget-title">Advertisement</h3>  
 	        <a href="http://www.theme-junkie.com/" target="_blank"><img src="/assets/images/ad_300x250_2.png" alt="Ad Widget"></a>
-	    </div><!-- .widget .widget_ads -->
+	    </div> --><!-- .widget .widget_ads -->
 
 	    <?php //$this->view('widget/tags');?>
 
@@ -65,10 +65,10 @@
 	    }?>
 	    <!-- .widget -->
 	    
-	    <div class="widget widget_ads">
+	    <!-- <div class="widget widget_ads">
 	        <h3 class="widget-title">Advertisement</h3>  
 	        <a href="http://www.theme-junkie.com/" target="_blank"><img src="/assets/images/ad_300x600.jpeg" alt="Ad Widget"></a>
-	    </div><!-- .widget .widget_ads -->
+	    </div> --><!-- .widget .widget_ads -->
 
 	</div>
 	<!-- Secondary / End -->
