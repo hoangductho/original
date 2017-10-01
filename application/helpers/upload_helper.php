@@ -14,7 +14,7 @@
     	try {
     		$filter = array(
     			'options' => array(
-    				'regexp' => '/^data:image\/jpeg;base64,/'
+    				'regexp' => '/^data:image\/[a-zA-Z]{2,9};base64,/'
     			)
     		);
 
