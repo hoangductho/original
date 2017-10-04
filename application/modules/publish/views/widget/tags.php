@@ -8,16 +8,14 @@
     <!-- Tabs Container -->
     <div class="tabs-container">
         <div class="tab-content" id="tab4">
-            <a href="#">WordPress</a>
-            <a href="#">Themes</a>
-            <a href="#">Plugins</a>
-            <a href="#">Hosting</a>
-            <a href="#">Web Design</a>
-            <a href="#">Web Dev</a>
-            <a href="#">Domain Name</a>
-            <a href="#">WP Engine</a>
-            <a href="#">Affiliates</a>
-            <a href="#">bbPress</a>         
+            
+            <?php 
+            $explode = explode(',',$keyword);
+
+            foreach($explode as $key => $value) {
+                $value = trim($value);
+                echo '<a href="/publish/tags/'.$value.'">'.$value.'</a>';
+            }?>
         </div>
 
     </div>

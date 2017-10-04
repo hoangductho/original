@@ -173,6 +173,7 @@ CREATE TABLE IF NOT EXISTS ARTICLES (
     category_id INT NOT NULL,
     keyword VARCHAR(128) NOT NULL,
     series VARCHAR(128),
+    series_code VARCHAR(32),
     status INT(1) NOT NULL DEFAULT 0,
     result INT(1) NOT NULL DEFAULT 0,
     privacy INT(1) NOT NULL DEFAULT 0,

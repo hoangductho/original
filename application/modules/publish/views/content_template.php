@@ -50,7 +50,9 @@
 	        <a href="http://www.theme-junkie.com/" target="_blank"><img src="/assets/images/ad_300x250_2.png" alt="Ad Widget"></a>
 	    </div> --><!-- .widget .widget_ads -->
 
-	    <?php //$this->view('widget/tags');?>
+	    <?php if(!empty($keyword)) {
+	    	$this->view('widget/tags', array('keyword' => $keyword));
+	    }?>
 
 	    <!-- <div class="widget widget_125">
 	        <h3 class="widget-title"><strong>Sponsors</strong></h3> 

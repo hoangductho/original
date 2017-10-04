@@ -214,7 +214,9 @@ class Article extends MY_Controller {
 
 		$request->series = ucwords(strtolower(preg_replace('/[\s]{2,}+/',' ',$request->series)));
 
-		$this->getSeries($request->series);
+		$request->series_code = $this->getSeries($request->series);
+
+		$request->series_code = md5($request->series);
 
 		$request->keyword = $this->MKeyword->addKeyword($request->keyword);
 
@@ -269,7 +271,8 @@ class Article extends MY_Controller {
 		$request->friendly = url_friendly($request->title);
 		$request->series = ucwords(strtolower(preg_replace('/[\s]{2,}+/',' ',$request->series)));
 
-		$this->getSeries($request->series);
+		$request->series_code = $this->getSeries($request->series);
+
 		$request->keyword = $this->MKeyword->addKeyword($request->keyword);
 
 		if(empty($request->actived_date)) {

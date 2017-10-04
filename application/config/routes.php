@@ -58,8 +58,8 @@ $route['translate_uri_dashes'] = TRUE;
 | Sample REST API Routes
 | -------------------------------------------------------------------------
 */
-$route['api/example/users/(:num)'] = 'api/example/users/id/$1'; // Example 4
-$route['api/example/users/(:num)(\.)([a-zA-Z0-9_-]+)(.*)'] = 'api/example/users/id/$1/format/$3$4'; // Example 8
+// $route['api/example/users/(:num)'] = 'api/example/users/id/$1'; // Example 4
+// $route['api/example/users/(:num)(\.)([a-zA-Z0-9_-]+)(.*)'] = 'api/example/users/id/$1/format/$3$4'; // Example 8
 
 /**
  * ------------------------------------------------------------------------
@@ -70,3 +70,9 @@ $route['(:num)'] = 'publish/index/0/$1';
 $route['publish/(:num)/([a-zA-Z0-9_-]+)'] = 'publish/index/$1';
 $route['publish/(:num)/([a-zA-Z0-9_-]+)/(:num)'] = 'publish/index/$1/$3';
 $route['publish/detail/(:num)/([a-zA-Z0-9_-]+)'] = 'publish/detail/index/$1';
+
+$route['publish/series/([a-zA-Z0-9]+)/(.*)'] = 'publish/series/index/$1/$2';
+$route['publish/series/([a-zA-Z0-9]+)/(.*)/(:num)'] = 'publish/series/index/$1/$2/$3';
+
+$route['publish/tags/(.*)'] = 'publish/tags/index/$1';
+$route['publish/tags/(.*)/(:num)'] = 'publish/tags/index/$1/$2';
