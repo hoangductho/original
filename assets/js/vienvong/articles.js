@@ -1,3 +1,23 @@
+$('#avatar').on('change', function() {
+  var file = $(this)[0].files[0];
+  var validType = '/image\/png, image\/jpeg, image\/bmp/i';
+  console.log(file, validType.search(file.type));
+  if(file.size <= 1024 * 100 && validType.search(file.type) >= 0
+    ) {
+    var name = $(this).attr('name');
+    var success = function(data) {
+      $('#avatar64').val(data.target.result);
+      $("#avatar-show").attr("src", data.target.result);
+    };
+    var error = null;
+
+    getFileBase64(file, success, error);
+    
+    // console.log(file, json);
+  }
+});
+
+
 var message_success = "<span class='message-success'>Thành công!</span>";
 var message_error = "<span class='message-error'>Xảy ra sự cố. Xin vui lòng thử lại!</span>";
 

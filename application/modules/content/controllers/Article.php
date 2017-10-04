@@ -119,7 +119,7 @@ class Article extends MY_Controller {
 					'allow_null' => false,
 					'filter' => FILTER_VALIDATE_REGEXP,
 					'options' => [
-						'regexp' => '/[A-Za-z0-9+/]/'
+						'regexp' => '/[A-Za-z0-9.-_+\/]/'
 					]
 				],
 				'series' => [
