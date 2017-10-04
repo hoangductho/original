@@ -27,7 +27,7 @@
 
 			// $size = getimagesize($data64);
 
-	    	if(strlen(base64_decode($data64)) < 100 * 1024) {
+	    	if(strlen(base64_decode($data64)) < 1024 * 1024) {
 				$decoded = base64_decode($data);
 				$name = md5($data64);
 
