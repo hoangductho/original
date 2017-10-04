@@ -1,8 +1,8 @@
 $('#avatar').on('change', function() {
   var file = $(this)[0].files[0];
   var validType = '/image\/png, image\/jpeg, image\/bmp/i';
-  console.log(file, validType.search(file.type));
-  if(file.size <= 1024 * 100 && validType.search(file.type) >= 0
+
+  if(file.size <= 1024 * 1024 && validType.search(file.type) >= 0
     ) {
     var name = $(this).attr('name');
     var success = function(data) {
