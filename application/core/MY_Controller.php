@@ -123,6 +123,14 @@ class MY_Controller extends REST_Controller {
     $this->_protect_permission();
 
     $this->load->__DICT__ = $this->config->item('dictionary');
+
+    if(!empty($this->__ACCOUNT__)) {
+      $layout_data = [
+        'profile' => (array)$this->__ACCOUNT__
+      ];
+      
+      $this->load->layout($layout_data);
+    }
   }
 
   // ----------------------------------------------------------------

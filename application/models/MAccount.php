@@ -216,7 +216,7 @@ class MAccount extends MBase {
 	 * @todo check account existed and compare account status with the status checking
 	 */
 	public function account_id_exist_status($id, $status) {
-		$exists = $this->MAccount->exists(array('id' => $id), array('id', 'email', 'firstname', 'lastname', 'status', 'password'));
+		$exists = $this->MAccount->exists(array('id' => $id), array('id', 'email', 'firstname', 'lastname', 'status', 'password', 'avatar'));
 
 		if(!$exists) {
 			$this->CI->_error($this->CI::SRV_ACCOUNT_NOT_FOUND, $this->CI::HTTP_OK);

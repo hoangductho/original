@@ -42,7 +42,14 @@
 				<a class="navbar-brand" href="#"><span>Viễn</span>Vọng</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<?php if(!empty($profile)) {
+									echo '<img src="' . $profile['avatar'] .'" width="25" alt="User Avatar" class="img-circle"> ' . $profile['email'];
+								}
+								else {
+									echo '<svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span>';
+							}?>
+						</a>
 						<ul class="dropdown-menu" role="menu">
 							<!-- <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
 							<li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li> -->
