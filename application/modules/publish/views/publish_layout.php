@@ -21,7 +21,6 @@
     <meta property="og:description" content="<?php echo isset($description) ? $description : null; ?>">
     <meta property="og:image" content="<?php echo 'https://vienvong.com' . (isset($image) ? $image : '/assets/images/logo.png'); ?>">
     <meta property="og:locale" content="vi_VN">
-    <meta property="article:author" content="vienvong.com">	
 	<!-- Stylesheets -->
 	<link rel="stylesheet" type="text/css" href="/assets/css/supernews/weather.css">	
 	<link rel="stylesheet" type="text/css" href="/assets/css/supernews/style.css">	
