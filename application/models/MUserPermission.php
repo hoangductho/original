@@ -32,4 +32,18 @@ class MUserPermission extends MBase {
 
 		return $this->get((array)$filter);
 	}
+
+	/**
+	 * --------------------------------------------
+	 * Get Group Users
+	 * --------------------------------------------
+	 */
+	public function getGroupKeyMembers($groupname) {
+		$filter = array(
+			'group_name' => $groupname,
+			'permission_name' => 'KEYMEMBERS'
+		);
+
+		return $this->get($filter);
+	}
 }

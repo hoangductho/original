@@ -254,7 +254,7 @@ CREATE VIEW IF NOT EXISTS USER_PERMISSION AS (
     SELECT 
         gu.group_id, gu.account_id, 
         rp.role_id, rp.permission_id, 
-        a.email, 
+        a.email, CONCAT_WS(' ', a.lastname, a.firstname) username, a.introduce user_introduce, a.avatar user_avatar, 
         g.name group_name, g.privacy, g.type, g.region, 
         r.name role_name, 
         p.name permission_name, p.readable, p.writable, p.executable,
@@ -263,7 +263,8 @@ CREATE VIEW IF NOT EXISTS USER_PERMISSION AS (
     WHERE gu.group_id = g.id
         AND gu.account_id = a.id
         AND gu.group_id = r.group_id
-        AND rp.role_id = r.id
+        AND gu.role_id = r.id
+        AND r.id = rp.role_id
         AND rp.permission_id = p.id
         AND g.region = re.id
         AND g.status = 1

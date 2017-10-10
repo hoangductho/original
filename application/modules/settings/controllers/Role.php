@@ -26,7 +26,7 @@ class Role extends MY_Controller {
 					'allow_null' => false,
 					'filter' => FILTER_VALIDATE_REGEXP,
 					'options' => [
-						'regexp' => '/^[\\s\\w\\p{L}]{2,64}+$/u'
+						'regexp' => '/^[\\s\\w\\p{L}-]{2,64}+$/u'
 					]
 				],
 				'group_id' => [

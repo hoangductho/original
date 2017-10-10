@@ -50,7 +50,8 @@ class About extends CI_Controller {
 	{
 		$settings = array(
 			// 'categories' => $this->MCategories->getDictionaryCategories(),
-			// 'articles' => $this->MPublicArticles->getArticles($filter)
+			// 'articles' => $this->MPublicArticles->getArticles($filter),
+			'team' => $this->MUserPermission->getGroupKeyMembers('Vienvong'), 
 		);
 		$this->load->render('about/about', $settings);
 	}
