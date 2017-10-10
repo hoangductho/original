@@ -30,6 +30,10 @@
                         <span><?php echo !empty($profile) ? ($profile['sex'] == 1 ? 'Male' : 'Female') : null?></span>
                     </div>
                     <div class="form-group">
+                        <label class="row col-sm-3">Introduce: </label>
+                        <span><?php echo !empty($profile['introduce']) ? $profile['introduce'] : 'Introduce yourself'?></span>
+                    </div>
+                    <div class="form-group">
                         <a href="javascript:profile_editing();">Edit</a>
                     </div>
                 </div>
@@ -40,6 +44,9 @@
                         </div>
                         <div class="form-group">
                             <input class="form-control" data-toggle="tooltip" placeholder="Fisrtname" name="lastname" type="text" title="Tối đa 64 ký tự" value="<?php echo !empty($profile) ? $profile['lastname'] : null?>">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" data-toggle="tooltip" placeholder="Introduce yourself with 512 characters" name="introduce" type="text" title=""><?php echo !empty($profile) ? $profile['introduce'] : null?></textarea>
                         </div>
                         <div class="form-group">
                             <input class="form-control birthday-datepicker" data-toggle="tooltip" placeholder="Birthday" name="birthday" type="text" value="<?php echo !empty($profile) ? date('d/m/Y',strtotime($profile['birthday'])) : null?>">

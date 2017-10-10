@@ -43,7 +43,14 @@ class Profile extends MY_Controller {
 					'options' => [
 						'regexp' => '/^[0-1]{1}$/'
 					]
-				]
+				],
+				'introduce' => [
+					'allow_null' => false,
+					'filter' => FILTER_VALIDATE_REGEXP,
+					'options' => [
+						'regexp' => '/^[\\s\\w\\p{L}\\pP]{32,512}+$/u'
+					]
+				],
 			]
 		],
 		'changepassword' => [
