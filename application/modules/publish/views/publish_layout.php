@@ -234,25 +234,7 @@
 	  js = d.createElement(s); js.id = id;
 	  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=550251971759267";
 	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
-
-	window.fbAsyncInit = function() {
-        FB.init({
-            appId   : '<?php echo $facebook->getAppId(); ?>',
-            session : <?php echo json_encode($session); ?>, // don't refetch the session when PHP already has it
-            status  : true, // check login status
-            cookie  : true, // enable cookies to allow the server to access the session
-            xfbml   : true // parse XFBML
-        });
-    };
-
-    (function() {
-        var e = document.createElement('script');
-        e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
-        e.async = true;
-        document.getElementById('fb-root').appendChild(e);
-    }());
-	</script>
+	}(document, 'script', 'facebook-jssdk'));</script>
 	<!-- FOR DEMO ONLY --> 
 
 	<!-- Global Site Tag (gtag.js) - Google Analytics -->
