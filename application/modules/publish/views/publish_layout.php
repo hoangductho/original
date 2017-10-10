@@ -15,7 +15,7 @@
     <meta name="keywords" content="<?php echo isset($keyword) ? $keyword : null; ?>">
     <meta property="fb:app_id" content="550251971759267">
     <meta property="og:site_name" content="Viễn Vọng">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="blog">
     <meta property="og:url" content="<?php echo 'https://vienvong.com/'. $this->uri->uri_string;?>">
     <meta property="og:title" content="<?php echo isset($title) ? $title : 'Viễn Vọng'?>">
     <meta property="og:description" content="<?php echo isset($description) ? $description : null; ?>">
