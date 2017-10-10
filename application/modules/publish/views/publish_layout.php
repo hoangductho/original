@@ -15,13 +15,13 @@
     <meta name="keywords" content="<?php echo isset($keyword) ? $keyword : null; ?>">
     <meta property="fb:app_id" content="550251971759267">
     <meta property="og:site_name" content="Viễn Vọng">
-    <meta property="og:type" content="blog">
+    <meta property="og:type" content="article">
     <meta property="og:url" content="<?php echo 'https://vienvong.com/'. $this->uri->uri_string;?>">
     <meta property="og:title" content="<?php echo isset($title) ? $title : 'Viễn Vọng'?>">
     <meta property="og:description" content="<?php echo isset($description) ? $description : null; ?>">
     <meta property="og:image" content="<?php echo 'https://vienvong.com' . (isset($image) ? $image : '/assets/images/logo.png'); ?>">
     <meta property="og:locale" content="vi_VN">
-    <meta property="og:author" content="vienvong.com">	
+    <meta property="article:author" content="vienvong.com">	
 	<!-- Stylesheets -->
 	<link rel="stylesheet" type="text/css" href="/assets/css/supernews/weather.css">	
 	<link rel="stylesheet" type="text/css" href="/assets/css/supernews/style.css">	
