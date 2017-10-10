@@ -204,8 +204,6 @@
 	</div>
 	<!-- Page / End -->
 
-	<div id="fb-root"></div>
-
 	<!-- JavaScripts -->
 	<!-- <script type="text/javascript" async="" src="/assets/images/ga.js"></script> -->
 	<script type="text/javascript" src="/assets/js/supernews/jquery_002.js"></script>
@@ -228,11 +226,12 @@
 			}
 		}?>
 
+	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
 	  if (d.getElementById(id)) return;
 	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=550251971759267";
+	  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 	<!-- FOR DEMO ONLY --> 

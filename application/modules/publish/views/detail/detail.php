@@ -2,7 +2,7 @@
 	<div id="breadcrumbs-sticky-wrapper" class="sticky-wrapper" style="height: 27px;">
 		<div id="breadcrumbs">
 			<strong>You are here:</strong> <span class="home-link"><a href="/">Home</a></span> <span class="sep">→</span> <span class="category-link"><a href="/publish/<?php echo $article['category_id'] . '/' . $article['category_friendly']?>"><?php echo $article['category_name']?></a></span> <span class="sep">→</span> <span class="title">Just another example post</span>
-			<span class="post-nav see-all"><a href="/publish/<?php echo $article['category_id'] . '/' . $article['category_friendly']?>">More</a></span>
+			<span class="post-nav see-all"><div class="fb-like" data-href="<?php echo $this->uri->uri_string?>" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div></span>
 		</div>
 	</div>
 	<article class="hentry post">
