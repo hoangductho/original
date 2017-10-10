@@ -1,6 +1,6 @@
 <div class="float-left frame-page" >
         <div class="form-group">
-            <h3><img src="<?php echo !empty($profile) ? $profile['avatar'] : null?>" width="50" alt="User Avatar" class="img-circle"> <?php echo !empty($profile) ? $profile['firstname'] . ' ' . $profile['lastname'] : null?></h3>
+            <h3><img src="<?php echo !empty($profile) ? $profile['avatar'] : null?>" width="50" alt="" class="img-circle"> <?php echo !empty($profile) ? $profile['firstname'] . ' ' . $profile['lastname'] : null?></h3>
         </div>
         <div class="form-group has-success">
             <div class="row col-lg-6 col-md-12">

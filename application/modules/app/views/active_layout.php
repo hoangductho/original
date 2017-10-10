@@ -44,7 +44,7 @@
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<?php if(!empty($profile)) {
-									echo '<img src="' . $profile['avatar'] .'" width="25" alt="User Avatar" class="img-circle"> ' . $profile['email'];
+									echo '<img src="' . $profile['avatar'] .'" width="25" alt="" class="img-circle"> ' . $profile['email'];
 								}
 								else {
 									echo '<svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span>';
