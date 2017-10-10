@@ -13,6 +13,12 @@
 	        <h3 class="widget-title">Advertisement</h3>
 	        <a href="http://www.theme-junkie.com/" target="_blank"><img src="/assets/images/ad_300x250.png" alt="Ad Widget"></a>
 	    </div> --><!-- .widget .widget_ads -->
+	    <div class="widget widget_weather">
+	        <h3 class="widget-title">Weather</h3>
+	        <div class="newsletter-container">
+		        <div id="weather"></div>
+	        </div>
+	    </div> 
 	    <div class="widget widget_social clearfix">
 	        <!-- <ul>
 	            <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i><span><strong>5,600</strong></span><span>Followers</span></a></li>
@@ -27,13 +33,6 @@
 	        	<div class="fb-follow" data-href="https://www.facebook.com/vienvong.vn/" data-layout="box_count" data-size="small" data-show-faces="true"></div>
 	        <?php }?> -->
 	    </div><!-- .widget .widget_social -->
-
-	    <div class="widget widget_weather">
-	        <h3 class="widget-title">Weather</h3>
-	        <div class="newsletter-container">
-		        <div id="weather"></div>
-	        </div>
-	    </div> 
 
 	    <!-- <div class="widget widget_newsletter">
 	        <h3 class="widget-title">Newsletter</h3>
