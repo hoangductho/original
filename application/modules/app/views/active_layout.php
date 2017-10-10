@@ -13,6 +13,12 @@
 <link href="/assets/css/vienvong/font-awesome.min.css" rel="stylesheet" >
 <link href="/assets/lib/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="/assets/lib/datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+<?php if(!empty($stylesheet)) {
+	foreach ($stylesheet as $key => $value) {	
+		echo '<link rel="stylesheet" type="text/css" href="'.$value.'">';
+	}
+}?>
 <!-- <link href="/assets/lib/combobox/style.css" rel="stylesheet"> -->
 <link href="/assets/css/vienvong/default.css" rel="stylesheet">
 

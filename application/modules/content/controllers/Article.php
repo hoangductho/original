@@ -231,7 +231,7 @@ class Article extends MY_Controller {
 			$request->image = $upload;
 		}
 		else {
-			$this->response(json_encode(set_response_data($insert, 200, 'upload image error!')));	
+			$this->response(json_encode(set_response_data($upload, 200, 'upload image error!')));	
 		}
 
 		if($id == 0) {

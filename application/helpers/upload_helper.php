@@ -9,7 +9,7 @@
   */
   if ( ! function_exists('upload_base64'))
   {
-  	function upload_base64($data64, $path = null)
+  	function upload_base64($data64, $name = null, $path = null)
     {
     	try {
     		$filter = array(
@@ -29,7 +29,10 @@
 
 	    	if(strlen(base64_decode($data64)) < 1024 * 1024) {
 				$decoded = base64_decode($data);
-				$name = md5($data64);
+				
+				if(empty($name)) {
+					$name = md5($data64);
+				}
 
 				if(empty($path)) {
 					$path = date('Y') . DIRECTORY_SEPARATOR . date('m') . DIRECTORY_SEPARATOR . date('d'). DIRECTORY_SEPARATOR;
@@ -39,7 +42,9 @@
 				list(, $type)      = explode('/', $type);
 
 				switch ($type) {
-					case 'jpeg':
+					case 'jpeg': case 'jpg':
+						# code...
+						break;
 						$type = 'jpg';
 						break;
 					case 'png':

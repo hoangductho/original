@@ -191,4 +191,35 @@ class MBase extends CI_Model {
 
 		return $page;
 	}
+	// ----------------------------------------------------------------
+	/**
+	 * --------------------------------------------
+	 * Update Data By ID
+	 * --------------------------------------------
+	 *
+	 * @param array $data data set 
+	 * @param array $filter where filter
+	 * @param bool  $default 
+	 *
+	 * @return update result
+	 */
+	public function updateByID($id, $set, $default = false) {
+		try {
+			$filter = array('id' => $id);
+			
+			$update = $this->db->update($this->table, $set, $filter);
+			
+			if($default) {
+				return $update;
+			}
+
+			if($update) {
+				return true;
+			}else {
+				return false;
+			}
+		} catch (Exception $e) {
+			return false;
+		}
+	}
 }

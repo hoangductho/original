@@ -22,7 +22,11 @@ class Profiles extends MY_Controller {
         $layout_data = [
             'title' => 'Profiles',
             'javascript' => array(
-                1 => '/assets/js/vienvong/profiles.js'
+                1 => '/assets/lib/cropperjs/cropper.min.js',
+                2 => '/assets/js/vienvong/profiles.js',
+            ),
+            'stylesheet' => array(
+                1 => '/assets/lib/cropperjs/cropper.min.css'
             )
         ];
 

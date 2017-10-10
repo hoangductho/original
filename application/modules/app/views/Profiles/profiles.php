@@ -1,9 +1,9 @@
 <div class="float-left frame-page" >
         <div class="form-group">
-            <h3>Profile</h3>
+            <h3><img src="<?php echo !empty($profile) ? $profile['avatar'] : null?>" width="50" alt="User Avatar" class="img-circle"> <?php echo !empty($profile) ? $profile['firstname'] . ' ' . $profile['lastname'] : null?></h3>
         </div>
         <div class="form-group has-success">
-            <div class="row col-md-6 col-sm-12">
+            <div class="row col-lg-6 col-md-12">
                 <div class="form-group">
                     <label class="row col-sm-3">Email: </label>
                     <span><?php echo !empty($profile) ? $profile['email'] : null?></span>
@@ -69,6 +69,38 @@
                             <a class="btn btn-info pull-right mr-1" href="javascript:profiles_edit();">Submit</a>
                         </div>
                     </fieldset>
+                </form>
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+                <!-- <div class="form-group" >
+                    <label>Ảnh đại diện</label>
+                </div> -->
+                <div class="form-group">
+                    <label class="row col-md-4 col-sm-12">Thay ảnh đại diện: </label>
+                    <span>Vui lòng chọn ảnh đại diện mới</span>
+                </div>
+                <form role="form" id="change-avatar">
+                    <div class="form-group col-md-12 row">
+                        <div class="col-md-10 row">
+                            <input id='avatar' class="form-control" placeholder="Link ảnh" type="file" name=''>
+                            <br>
+                            <input id='avatar64' placeholder="Data Base64" type="text" name='avatar' hidden>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="pull-right">
+                                <button id="avatar-save" type="button" onclick="avatar_edit()" class="btn btn-info" disabled>Save</button> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p id="message"></p>
+                    </div>
+                    <div class="form-group">
+                        <div class="pull-left">
+                            <img id="avatar-cropper" src="" alt="" width="320" style="display: block;">
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

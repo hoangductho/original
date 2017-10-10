@@ -53,6 +53,19 @@ class Profile extends MY_Controller {
 				],
 			]
 		],
+		'changeavatar' => [
+			'method' => 'POST',
+			'security' => true,
+			'data' => [
+				'avatar' => [
+					'allow_null' => false,
+					'filter' => FILTER_VALIDATE_REGEXP,
+					'options' => [
+						'regexp' => '/[A-Za-z0-9.-_+\/]/'
+					]
+				],
+			]
+		],
 		'changepassword' => [
 			'method' => 'POST',
 			'security' => true,
@@ -82,10 +95,7 @@ class Profile extends MY_Controller {
 
 		// init Vienvong email
 		$this->Vmail = new Vmail();
-
-		// load models
-		$this->load->model('MAccount');
-
+		
 		// set layout for email
 		$this->load->set_layout('email/email_layout.php'); 
 	}
@@ -159,5 +169,25 @@ class Profile extends MY_Controller {
 		// }
 
 		$this->response(json_encode(set_response_data($validate)));
+	}
+
+	/**
+	 * Change Avatar
+	 */
+	public function changeavatar() {
+		$request = $this->__REQUEST_DATA__;
+		$path = 'user' . DIRECTORY_SEPARATOR . $this->__ACCOUNT__->id . DIRECTORY_SEPARATOR;
+		$upload = upload_base64($request->avatar, 'avatar', $path);
+
+		if($upload) {
+			$request->avatar = $upload;
+		}
+		else {
+			$this->response(json_encode(set_response_data($upload, 200, 'upload image error!')));	
+		}
+
+		$update = $this->MAccount->updateByID($this->__ACCOUNT__->id, $request);
+
+		$this->response(json_encode(set_response_data($update)));
 	}
 }
