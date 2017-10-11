@@ -37,7 +37,7 @@
         // Create the new element 
         $element = $dom->createElement('url'); 
         $loc = $dom->createElement('loc', "https://vienvong.com/publish/detail/{$article['id']}/{$article['friendly']}");
-        $freq = $dom->createElement('changefreq', $article['actived_date']);
+        $freq = $dom->createElement('changefreq', date('Y-m-d h:i:s'));
         $id = $dom->createElement('id'.$article['id'], $article['id']);
 
         $element->appendChild($dom->createTextNode("\n\t"));
