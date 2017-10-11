@@ -290,14 +290,13 @@ class Article extends MY_Controller {
 			$this->response(json_encode(set_response_data($insert, 200, 'upload image error!')));	
 		}
 
-		$article = $request;
-
 		unset($request->id);
 		unset($request->category);
 
 		$insert = $this->MArticles->update($request, array('id' => $id));
 
 		// auto rending sitemap.xml
+		$article = $this->__REQUEST_DATA__;
 		$this->load->helper('sitemap');
 		add_siteindex((array)$article);
 		
