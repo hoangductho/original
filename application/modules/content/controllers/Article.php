@@ -299,7 +299,7 @@ class Article extends MY_Controller {
 
 		// auto rending sitemap.xml
 		$this->load->helper('sitemap');
-		add_siteindex($article);
+		add_siteindex((array)$article);
 		
 		// send mail to user
 		$this->response(json_encode(set_response_data($insert)));
