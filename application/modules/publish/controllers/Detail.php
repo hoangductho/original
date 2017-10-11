@@ -53,6 +53,7 @@ class Detail extends CI_Controller {
 		
 		$this->load->set_template('content_template');
 		$this->load->template($template_data);
+		$this->load->helper('sitemap');
 	}
 
 	/**

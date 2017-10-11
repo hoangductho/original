@@ -281,9 +281,6 @@ class Article extends MY_Controller {
 
 		$request->category_id = $request->category;
 
-		unset($request->id);
-		unset($request->category);
-
 		$upload = upload_base64($request->image);
 
 		if($upload) {
@@ -293,7 +290,14 @@ class Article extends MY_Controller {
 			$this->response(json_encode(set_response_data($insert, 200, 'upload image error!')));	
 		}
 
+		$article = $request;
+
+		unset($request->id);
+		unset($request->category);
+
 		$insert = $this->MArticles->update($request, array('id' => $id));
+
+		add_siteindex($article);
 		
 		// send mail to user
 		$this->response(json_encode(set_response_data($insert)));
