@@ -22,7 +22,7 @@
 
 		<div class="entry-content">
 
-	    	<pre class="row" id='md_content' hidden=""><?php echo $article['content']?></pre>
+	    	<pre class="row" id='md_content' hidden=""><?php echo htmlentities($article['content'])?></pre>
 			<div class="article-content markdown-body" id='html_content'></div>
 																
 		</div><!-- .entry-content -->

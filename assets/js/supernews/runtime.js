@@ -1,1 +1,1 @@
-markdownit_render('md_content','html_content');
+markdown_render('md_content','html_content');
