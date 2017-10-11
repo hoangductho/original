@@ -297,6 +297,8 @@ class Article extends MY_Controller {
 
 		$insert = $this->MArticles->update($request, array('id' => $id));
 
+		// auto rending sitemap.xml
+		$this->load->helper('sitemap');
 		add_siteindex($article);
 		
 		// send mail to user
