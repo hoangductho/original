@@ -254,6 +254,8 @@ function markdown_render(source, target) {
         flowChart         : true,
         sequenceDiagram   : true,
       });
+
+      $('#' + source).hide();
     }
 }
 /**
