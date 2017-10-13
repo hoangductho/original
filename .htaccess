@@ -424,6 +424,10 @@ AddDefaultCharset utf-8
                                       text/xml
     </IfModule>
 
+    <filesMatch "\.(js|html|txt|css)$">
+        SetOutputFilter DEFLATE
+    </filesMatch>
+
 </IfModule>
 
 # ------------------------------------------------------------------------------
