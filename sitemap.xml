@@ -34,4 +34,147 @@
   <loc>https://vienvong.com/publish/4/goc-nhin</loc>
   <changefreq>always</changefreq>
 </url>
+<url xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" id="article_13">
+    <loc>https://vienvong.com/publish/detail/13/blockchain-va-nhung-dieu-can-biet-ve-tien-ao</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Viễn Vọng</news:name>
+        <news:language>vi</news:language>
+      </news:publication>
+      <news:genres>Tin Lý</news:genres>
+      <news:publication_date>2017-10-16 21:50:25</news:publication_date>
+      <news:title>Blockchain Và Những điều Cần Biết Về Tiền ảo</news:title>
+      <news:keywords>Blockchain, Bitcoin, Tiền ảo, Mint, Mining, Khai Mỏ, Xưởng đúc Tiền, Sổ Cái Số</news:keywords>
+    </news:news>
+  </url>
+<url xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" id="article_12">
+    <loc>https://vienvong.com/publish/detail/12/cach-tao-friendly-url-cho-tieng-viet-trong-php</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Viễn Vọng</news:name>
+        <news:language>vi</news:language>
+      </news:publication>
+      <news:genres>Hướng Dẫn</news:genres>
+      <news:publication_date>2017-10-16 15:58:13</news:publication_date>
+      <news:title>Cách Tạo Friendly Url Cho Tiếng Việt Trong Php</news:title>
+      <news:keywords>Friendly Url, Seo, Website, Seo Tiếng Việt, Php</news:keywords>
+    </news:news>
+  </url>
+<url xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" id="article_11">
+    <loc>https://vienvong.com/publish/detail/11/cac-kieu-luu-tru-du-lieu-trong-mysql</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Viễn Vọng</news:name>
+        <news:language>vi</news:language>
+      </news:publication>
+      <news:genres>Tin Lý</news:genres>
+      <news:publication_date>2017-10-13 17:05:12</news:publication_date>
+      <news:title>Các Kiểu Lưu Trữ Dữ Liệu Trong Mysql</news:title>
+      <news:keywords>Mysql, Storage Engine, Dbms, Database, Innodb, Myisam, Memory, Csv, Archive, Federated, Blackhole</news:keywords>
+    </news:news>
+  </url>
+<url xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" id="article_8">
+    <loc>https://vienvong.com/publish/detail/8/oop-tong-quan-ve-lap-trinh-huong-doi-tuong</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Viễn Vọng</news:name>
+        <news:language>vi</news:language>
+      </news:publication>
+      <news:genres>Tin Lý</news:genres>
+      <news:publication_date>2017-10-12 21:57:38</news:publication_date>
+      <news:title>Oop - Tổng Quan Về Lập Trình Hướng đối Tượng</news:title>
+      <news:keywords>Oop, Object, Đối Tượng, Lập Trình, Trừu Tượng, Đa Hình, Kế Thừa, Đóng Gói, Nạp Chồng, Ghi đè</news:keywords>
+    </news:news>
+  </url>
+<url xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" id="article_7">
+    <loc>https://vienvong.com/publish/detail/7/cai-dat-https-voi-apache-tren-server-centos</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Viễn Vọng</news:name>
+        <news:language>vi</news:language>
+      </news:publication>
+      <news:genres>Hướng Dẫn</news:genres>
+      <news:publication_date>2017-10-04 12:15:45</news:publication_date>
+      <news:title>Cài đặt Https Với Apache Trên Server Centos</news:title>
+      <news:keywords>Https, Apache, Centos, Ssl, Certificate, Ca, Protocol, Giao Thức, Cài đặt, Server, Xác Thực</news:keywords>
+    </news:news>
+  </url>
+<url xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" id="article_6">
+    <loc>https://vienvong.com/publish/detail/6/doi-moi-cong-nghe-la-doi-moi-ve-kien-thuc-khong-phai-cac-tien-ich</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Viễn Vọng</news:name>
+        <news:language>vi</news:language>
+      </news:publication>
+      <news:genres>Góc Nhìn</news:genres>
+      <news:publication_date>2017-10-01 00:23:15</news:publication_date>
+      <news:title>Đổi Mới Công Nghệ Là đổi Mới Về Kiến Thức, Không Phải Các Tiện ích</news:title>
+      <news:keywords>Checklist, đổi Mới, Công Nghệ, Toán Học, Phần Mềm</news:keywords>
+    </news:news>
+  </url>
+<url xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" id="article_5">
+    <loc>https://vienvong.com/publish/detail/5/cai-dat-vsftp-tren-server-fedora-centos-redhat</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Viễn Vọng</news:name>
+        <news:language>vi</news:language>
+      </news:publication>
+      <news:genres>Hướng Dẫn</news:genres>
+      <news:publication_date>2017-09-28 00:55:56</news:publication_date>
+      <news:title>Cài đặt Vsftp Trên Server Fedora, Centos, Redhat</news:title>
+      <news:keywords>Vsftp, Ftp, Server, Fedora, Centos</news:keywords>
+    </news:news>
+  </url>
+<url xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" id="article_4">
+    <loc>https://vienvong.com/publish/detail/4/apache-khong-ghi-duoc-file-trong-thu-muc-phan-quyen-777</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Viễn Vọng</news:name>
+        <news:language>vi</news:language>
+      </news:publication>
+      <news:genres>Hướng Dẫn</news:genres>
+      <news:publication_date>2017-09-28 00:48:23</news:publication_date>
+      <news:title>Apache Không Ghi được File Trong Thư Mục Phân Quyền 777</news:title>
+      <news:keywords>Apache, Permission, Phân Quyền, Ghi File</news:keywords>
+    </news:news>
+  </url>
+<url xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" id="article_3">
+    <loc>https://vienvong.com/publish/detail/3/phan-quyen-nguoi-dung-trong-mongodb</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Viễn Vọng</news:name>
+        <news:language>vi</news:language>
+      </news:publication>
+      <news:genres>Hướng Dẫn</news:genres>
+      <news:publication_date>2017-09-28 00:38:32</news:publication_date>
+      <news:title>Phân Quyền Người Dùng Trong Mongodb</news:title>
+      <news:keywords>Mongodb, Database, Nosql, Phân Quyền</news:keywords>
+    </news:news>
+  </url>
+<url xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" id="article_2">
+    <loc>https://vienvong.com/publish/detail/2/lam-the-nao-de-day-source-code-len-git-server-</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Viễn Vọng</news:name>
+        <news:language>vi</news:language>
+      </news:publication>
+      <news:genres>Hướng Dẫn</news:genres>
+      <news:publication_date>2017-09-28 00:28:55</news:publication_date>
+      <news:title>Làm Thế Nào để đẩy Source Code Lên Git Server?</news:title>
+      <news:keywords>Git, Git Server, Source Code, Code</news:keywords>
+    </news:news>
+  </url>
+<url xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" id="article_1">
+    <loc>https://vienvong.com/publish/detail/1/ket-noi-git-server-cho-fedora-centos-rhel</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Viễn Vọng</news:name>
+        <news:language>vi</news:language>
+      </news:publication>
+      <news:genres>Hướng Dẫn</news:genres>
+      <news:publication_date>2017-09-28 00:19:31</news:publication_date>
+      <news:title>Kết Nối Git Server Cho Fedora, Centos, Rhel</news:title>
+      <news:keywords>Git, Github, Bitbucket, Get Server</news:keywords>
+    </news:news>
+  </url>
 </urlset>
