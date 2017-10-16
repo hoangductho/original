@@ -41,7 +41,7 @@
         <news:name>Viễn Vọng</news:name>
         <news:language>vi</news:language>
       </news:publication>
-      <news:publication_date>2017-10-16UTC09:10:25UTC0Mon</news:publication_date>
+      <news:publication_date>2017-10-16T21:50:25+00:00</news:publication_date>
       <news:title>Blockchain Và Những điều Cần Biết Về Tiền ảo</news:title>
       <news:keywords>Blockchain, Bitcoin, Tiền ảo, Mint, Mining, Khai Mỏ, Xưởng đúc Tiền, Sổ Cái Số</news:keywords>
     </news:news>
@@ -53,7 +53,7 @@
         <news:name>Viễn Vọng</news:name>
         <news:language>vi</news:language>
       </news:publication>
-      <news:publication_date>2017-10-16UTC03:10:13UTC0Mon</news:publication_date>
+      <news:publication_date>2017-10-16T15:58:13+00:00</news:publication_date>
       <news:title>Cách Tạo Friendly Url Cho Tiếng Việt Trong Php</news:title>
       <news:keywords>Friendly Url, Seo, Website, Seo Tiếng Việt, Php</news:keywords>
     </news:news>
@@ -65,7 +65,7 @@
         <news:name>Viễn Vọng</news:name>
         <news:language>vi</news:language>
       </news:publication>
-      <news:publication_date>2017-10-13UTC05:10:12UTC0Fri</news:publication_date>
+      <news:publication_date>2017-10-13T17:05:12+00:00</news:publication_date>
       <news:title>Các Kiểu Lưu Trữ Dữ Liệu Trong Mysql</news:title>
       <news:keywords>Mysql, Storage Engine, Dbms, Database, Innodb, Myisam, Memory, Csv, Archive, Federated, Blackhole</news:keywords>
     </news:news>
@@ -77,7 +77,7 @@
         <news:name>Viễn Vọng</news:name>
         <news:language>vi</news:language>
       </news:publication>
-      <news:publication_date>2017-10-12UTC09:10:38UTC0Thu</news:publication_date>
+      <news:publication_date>2017-10-12T21:57:38+00:00</news:publication_date>
       <news:title>Oop - Tổng Quan Về Lập Trình Hướng đối Tượng</news:title>
       <news:keywords>Oop, Object, Đối Tượng, Lập Trình, Trừu Tượng, Đa Hình, Kế Thừa, Đóng Gói, Nạp Chồng, Ghi đè</news:keywords>
     </news:news>
@@ -89,7 +89,7 @@
         <news:name>Viễn Vọng</news:name>
         <news:language>vi</news:language>
       </news:publication>
-      <news:publication_date>2017-10-04UTC12:10:45UTC0Wed</news:publication_date>
+      <news:publication_date>2017-10-04T12:15:45+00:00</news:publication_date>
       <news:title>Cài đặt Https Với Apache Trên Server Centos</news:title>
       <news:keywords>Https, Apache, Centos, Ssl, Certificate, Ca, Protocol, Giao Thức, Cài đặt, Server, Xác Thực</news:keywords>
     </news:news>
@@ -101,7 +101,7 @@
         <news:name>Viễn Vọng</news:name>
         <news:language>vi</news:language>
       </news:publication>
-      <news:publication_date>2017-10-01UTC12:10:15UTC0Sun</news:publication_date>
+      <news:publication_date>2017-10-01T00:23:15+00:00</news:publication_date>
       <news:title>Đổi Mới Công Nghệ Là đổi Mới Về Kiến Thức, Không Phải Các Tiện ích</news:title>
       <news:keywords>Checklist, đổi Mới, Công Nghệ, Toán Học, Phần Mềm</news:keywords>
     </news:news>
@@ -113,7 +113,7 @@
         <news:name>Viễn Vọng</news:name>
         <news:language>vi</news:language>
       </news:publication>
-      <news:publication_date>2017-09-28UTC12:09:56UTC0Thu</news:publication_date>
+      <news:publication_date>2017-09-28T00:55:56+00:00</news:publication_date>
       <news:title>Cài đặt Vsftp Trên Server Fedora, Centos, Redhat</news:title>
       <news:keywords>Vsftp, Ftp, Server, Fedora, Centos</news:keywords>
     </news:news>
@@ -125,7 +125,7 @@
         <news:name>Viễn Vọng</news:name>
         <news:language>vi</news:language>
       </news:publication>
-      <news:publication_date>2017-09-28UTC12:09:23UTC0Thu</news:publication_date>
+      <news:publication_date>2017-09-28T00:48:23+00:00</news:publication_date>
       <news:title>Apache Không Ghi được File Trong Thư Mục Phân Quyền 777</news:title>
       <news:keywords>Apache, Permission, Phân Quyền, Ghi File</news:keywords>
     </news:news>
@@ -137,7 +137,7 @@
         <news:name>Viễn Vọng</news:name>
         <news:language>vi</news:language>
       </news:publication>
-      <news:publication_date>2017-09-28UTC12:09:32UTC0Thu</news:publication_date>
+      <news:publication_date>2017-09-28T00:38:32+00:00</news:publication_date>
       <news:title>Phân Quyền Người Dùng Trong Mongodb</news:title>
       <news:keywords>Mongodb, Database, Nosql, Phân Quyền</news:keywords>
     </news:news>
@@ -149,7 +149,7 @@
         <news:name>Viễn Vọng</news:name>
         <news:language>vi</news:language>
       </news:publication>
-      <news:publication_date>2017-09-28UTC12:09:55UTC0Thu</news:publication_date>
+      <news:publication_date>2017-09-28T00:28:55+00:00</news:publication_date>
       <news:title>Làm Thế Nào để đẩy Source Code Lên Git Server?</news:title>
       <news:keywords>Git, Git Server, Source Code, Code</news:keywords>
     </news:news>
@@ -161,7 +161,7 @@
         <news:name>Viễn Vọng</news:name>
         <news:language>vi</news:language>
       </news:publication>
-      <news:publication_date>2017-09-28UTC12:09:31UTC0Thu</news:publication_date>
+      <news:publication_date>2017-09-28T00:19:31+00:00</news:publication_date>
       <news:title>Kết Nối Git Server Cho Fedora, Centos, Rhel</news:title>
       <news:keywords>Git, Github, Bitbucket, Get Server</news:keywords>
     </news:news>
