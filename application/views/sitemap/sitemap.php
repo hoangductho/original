@@ -8,8 +8,7 @@
         <news:name>Viễn Vọng</news:name>
         <news:language>vi</news:language>
       </news:publication>
-      <news:genres><?php echo $category_name?></news:genres>
-      <news:publication_date><?php echo $actived_date?></news:publication_date>
+      <news:publication_date><?php echo date('Y-m-d', strtotime($actived_date));?></news:publication_date>
       <news:title><?php echo $title?></news:title>
       <news:keywords><?php echo $keyword?></news:keywords>
     </news:news>
