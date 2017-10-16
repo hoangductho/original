@@ -138,7 +138,7 @@ if(! function_exists('pagination_render'))
         $pagination .= '<a class="page-numbers current" href="'.page_link_render($pages).'">'.($pages).'</a>';
     }
 
-    if($current_page < $pages){
+    if($current_page < $pages && $pages > 1){
         $pagination .= '<a class="page-numbers next" href="'.page_link_render($current_page + 1).'">Next</a>';
     }        
     
