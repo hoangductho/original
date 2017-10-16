@@ -102,15 +102,22 @@ class Publish extends CI_Controller {
 			'deleted' => 0
 		];
 
+		$trends = $this->MPublicArticles->getTrending($category_id);
+		$ignore['id'] = array();
+
+		foreach ($trends as $key => $value) {
+			array_push($ignore['id'], $value['id']);
+		}
+
 		if(!empty($category_id)) {
 			$filter['category_id'] = $category_id;
 		}
 
 		$settings = array(
 			// 'categories' => $this->MCategories->getDictionaryCategories(),
-			'articles' => $this->MPublicArticles->getArticles($filter, $page),
-			'pages' => $this->MPublicArticles->countPage($filter),
-			'trends' => $this->MPublicArticles->getTrending($category_id),
+			'articles' => $this->MPublicArticles->getArticles($filter, $page, $ignore),
+			'pages' => $this->MPublicArticles->countPage($filter, $ignore),
+			'trends' => $trends,
 		);
 
 		$this->load->render('homepage/homepage', $settings);

@@ -176,11 +176,15 @@ class MBase extends CI_Model {
 	 * Count number of Page
 	 * --------------------------------------------
 	 */
-	public function countPage($filter, $limit = 0) {
+	public function countPage($filter, $ignore, $limit = 0) {
 		$page = 1;
 
 		if(empty($limit)) {
 			$limit = $this->CI->config->item('limit');
+		}
+
+		foreach ($ignore as $key => $value) {
+			$this->db->where_not_in($key, $value);
 		}
 
 		$query = $this->get($filter, 'count(ID) numbers');

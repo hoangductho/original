@@ -22,8 +22,13 @@ class MPublicArticles extends MBase {
 	 * Get list data
 	 * --------------------------------------------
 	 */
-	public function getArticles($filter = array(), $page = null) {
+	public function getArticles($filter = array(), $page = null, $ignore = array()) {
 		$this->db->order_by('actived_date DESC');
+
+		foreach ($ignore as $key => $value) {
+			$this->db->where_not_in($key, $value);
+		}
+
 		return $this->get($filter, '*', $page);
 	}
 
