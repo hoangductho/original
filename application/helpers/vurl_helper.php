@@ -69,9 +69,7 @@ if(! function_exists('page_link_render')) {
         $explode[$page_index] = $number;
       }
     } else {
-      if(filter_var(end($explode), FILTER_VALIDATE_INT)) {
-        $explode[count($explode) - 1] = $number;
-      }
+      $explode[count($explode) - 1] = $number;
     }
 
     $uri = implode('/', $explode);
@@ -136,12 +134,12 @@ if(! function_exists('pagination_render'))
         $pagination .= '<span class="page-numbers dots">…</span>';
     }
     
-    if($current_page < $pages){
+    if($current_page <= $pages){
         $pagination .= '<a class="page-numbers current" href="'.page_link_render($pages).'">'.($pages).'</a>';
     }
 
     if($current_page < $pages){
-        $pagination .= $current_page.'<a class="page-numbers next" href="'.page_link_render($current_page + 1).'">Next</a>';
+        $pagination .= '<a class="page-numbers next" href="'.page_link_render($current_page + 1).'">Next</a>';
     }        
     
     $pagination .= '</nav>';
