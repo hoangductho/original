@@ -75,3 +75,67 @@ if(! function_exists('page_link_render')) {
     return $uri;
   }
 }
+
+/**
+  * Pagination link
+  *
+  * @access   public
+  * @param    string url need paginate
+  * @param    int current page
+  * @param    int number to paginate
+  * @return   string html
+  */
+if(! function_exists('pagination_render')) 
+{
+  function pagination_render($pages, $url = null, $current_page = 1) {
+
+    if(!empty($url)) {
+      $CI = &get_instance();
+
+      $explode = explode('/', $CI->uri->uri_string);
+
+      $current_page = filter_var(end($explode), FILTER_VALIDATE_INT) ? end($explode) : 1;
+    }
+
+    $pagination = '<nav class="pagination">';
+    
+    if($current_page > 1){
+        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page - 1).'">Prev</a>';
+    }
+    
+    $pagination .= '<a class="page-numbers current" href="<?php $pagination .= page_link_render(1)?>">1</a>';
+
+    if($current_page - 3 > 1){
+        $pagination .= '<span class="page-numbers dots">…</span>';
+    }
+    if($current_page - 2 > 1){
+        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page - 2).'">Prev</a>';
+    }
+    if($current_page - 1 > 1){
+        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page - 1).'">Prev</a>';
+    }
+    if($current_page > 1 && $current_page < $pages){
+        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page + 1).'">Prev</a>';
+    }
+    if($current_page + 1 < $pages){
+        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page + 1).'">Prev</a>';
+    }
+    if($current_page + 2 < $pages){
+        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page + 2).'">Prev</a>';
+    }
+    if($current_page + 3 < $pages){
+        $pagination .= '<span class="page-numbers dots">…</span>';
+    }
+    if($pages > 1){
+        $pagination .= '<a class="page-numbers current" href="'.page_link_render($pages).'"><?php $pagination .= $pages?></a>';
+    }
+
+    if($current_page < $pages){
+        $pagination .= $current_page.'<a class="page-numbers next" href="'.page_link_render($current_page + 1).'">Next</a>';
+    }        
+    
+    $pagination .= '</nav>';
+
+    return $pagination;
+  }
+}
