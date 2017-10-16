@@ -89,7 +89,7 @@ if(! function_exists('pagination_render'))
 {
   function pagination_render($pages, $url = null, $current_page = 1) {
 
-    if(!empty($url)) {
+    if(empty($url)) {
       $CI = &get_instance();
 
       $explode = explode('/', $CI->uri->uri_string);
@@ -109,25 +109,29 @@ if(! function_exists('pagination_render'))
         $pagination .= '<span class="page-numbers dots">…</span>';
     }
     if($current_page - 2 > 1){
-        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page - 2).'">Prev</a>';
+        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page - 2).'">'.($current_page - 2).'</a>';
     }
+
     if($current_page - 1 > 1){
-        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page - 1).'">Prev</a>';
+        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page - 1).'">'.($current_page - 2).'</a>';
     }
+    
     if($current_page > 1 && $current_page < $pages){
-        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page + 1).'">Prev</a>';
+        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page).'">'.($current_page - 2).'</a>';
     }
+
     if($current_page + 1 < $pages){
-        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page + 1).'">Prev</a>';
+        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page + 1).'">'.($current_page - 2).'</a>';
     }
     if($current_page + 2 < $pages){
-        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page + 2).'">Prev</a>';
+        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page + 2).'">'.($current_page - 2).'</a>';
     }
     if($current_page + 3 < $pages){
         $pagination .= '<span class="page-numbers dots">…</span>';
     }
-    if($pages > 1){
-        $pagination .= '<a class="page-numbers current" href="'.page_link_render($pages).'"><?php $pagination .= $pages?></a>';
+    
+    if($current_page + 4 < $pages){
+        $pagination .= '<a class="page-numbers current" href="'.page_link_render($pages).'">$pages</a>';
     }
 
     if($current_page < $pages){
