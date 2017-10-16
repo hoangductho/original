@@ -120,8 +120,6 @@ class Publish extends CI_Controller {
 			'trends' => $trends,
 		);
 
-		$articles = $this->MPublicArticles->getArticles($filter, $page);
-
 		$this->load->render('homepage/homepage', $settings);
 	}
 

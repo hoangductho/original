@@ -154,4 +154,16 @@
       <news:keywords>Git, Git Server, Source Code, Code</news:keywords>
     </news:news>
   </url>
+<url xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" id="article_1">
+    <loc>https://vienvong.com/publish/detail/1/ket-noi-git-server-cho-fedora-centos-rhel</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Viễn Vọng</news:name>
+        <news:language>vi</news:language>
+      </news:publication>
+      <news:publication_date>2017-09-28</news:publication_date>
+      <news:title>Kết Nối Git Server Cho Fedora, Centos, Rhel</news:title>
+      <news:keywords>Git, Github, Bitbucket, Get Server</news:keywords>
+    </news:news>
+  </url>
 </urlset>
