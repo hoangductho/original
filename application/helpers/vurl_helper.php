@@ -64,10 +64,14 @@ if(! function_exists('page_link_render')) {
 
     $explode = explode('/', $uri);
 
-    if(!empty($explode[$page_index])) {
-      $explode[$page_index] = $number;
+    if(!empty($page_index)) {
+      if(filter_var($explode[$page_index], FILTER_VALIDATE_INT)) {
+        $explode[$page_index] = $number;
+      }
     } else {
-      $explode[count($explode)] = $number;
+      if(filter_var(end($explode), FILTER_VALIDATE_INT)) {
+        $explode[count($explode) - 1] = $number;
+      }
     }
 
     $uri = implode('/', $explode);
@@ -92,7 +96,9 @@ if(! function_exists('pagination_render'))
     if(empty($url)) {
       $CI = &get_instance();
 
-      $explode = explode('/', $CI->uri->uri_string);
+      $url = $CI->uri->uri_string;
+
+      $explode = explode('/', $url);
 
       $current_page = filter_var(end($explode), FILTER_VALIDATE_INT) ? end($explode) : 1;
     }
@@ -103,7 +109,7 @@ if(! function_exists('pagination_render'))
         $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page - 1).'">Prev</a>';
     }
     
-    $pagination .= '<a class="page-numbers current" href="<?php $pagination .= page_link_render(1)?>">1</a>';
+    $pagination .= '<a class="page-numbers current" href="'.page_link_render(1).'">1</a>';
 
     if($current_page - 3 > 1){
         $pagination .= '<span class="page-numbers dots">…</span>';
