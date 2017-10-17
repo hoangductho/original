@@ -69,7 +69,11 @@ if(! function_exists('page_link_render')) {
         $explode[$page_index] = $number;
       }
     } else {
-      $explode[count($explode) - 1] = $number;
+      if(filter_var($explode[count($explode) - 1], FILTER_VALIDATE_INT)) {
+        $explode[count($explode) - 1] = $number;
+      } else {
+        $explode[count($explode)] = $number;
+      }
     }
 
     $uri = implode('/', $explode);
