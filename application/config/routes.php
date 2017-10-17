@@ -67,8 +67,11 @@ $route['translate_uri_dashes'] = TRUE;
  * ------------------------------------------------------------------------
  */
 $route['(:num)'] = 'publish/index/0/$1';
+$route['publish/(:num)'] = 'publish/index/$1';
 $route['publish/(:num)/([a-zA-Z0-9_-]+)'] = 'publish/index/$1';
 $route['publish/(:num)/([a-zA-Z0-9_-]+)/(:num)'] = 'publish/index/$1/$3';
+
+$route['publish/detail/(:num)'] = 'publish/detail/index/$1';
 $route['publish/detail/(:num)/([a-zA-Z0-9_-]+)'] = 'publish/detail/index/$1';
 
 $route['publish/series/([a-zA-Z0-9]+)/(.*)'] = 'publish/series/index/$1/$2';

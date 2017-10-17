@@ -74,7 +74,7 @@ if(! function_exists('page_link_render')) {
 
     $uri = implode('/', $explode);
 
-    return $uri;
+    return DIRECTORY_SEPARATOR . $uri;
   }
 }
 
