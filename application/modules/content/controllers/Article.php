@@ -126,7 +126,7 @@ class Article extends MY_Controller {
 					'allow_null' => true,
 					'filter' => FILTER_VALIDATE_REGEXP,
 					'options' => [
-						'regexp' => '/^[\\s\\w\\p{L}]{8,128}+$/u'
+						'regexp' => '/^[\\s\\w\\p{L}.-_+\/]{8,128}+$/u'
 					]
 				],
 				'category' => [
