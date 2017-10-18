@@ -5,7 +5,7 @@
 			<span class="seps">→</span> 
 			<span class="category-page"><a href="/publish/<?php echo $article['category_id'] . '/' . $article['category_friendly']?>"><?php echo $article['category_name']?></a></span> 
 			<!-- <span class="sep">→</span> <span class="title">Just another example post</span> -->
-			<span class="post-nav see-all"><div class="fb-like" data-href="/<?php echo $this->uri->uri_string?>" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div></span>
+			<span class="post-nav see-all"><div class="fb-like" data-href="<?php echo 'https://www.vienvong.com/' . $this->uri->uri_string?>" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div></span>
 		</div>
 	</div>
 	<article class="hentry post">
