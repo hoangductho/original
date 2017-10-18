@@ -13,7 +13,7 @@
 	<meta name="author" content="Viễn Vọng">
 	<meta name="description" content="<?php echo isset($description) ? $description : null; ?>">
     <meta name="keywords" content="<?php echo isset($keyword) ? $keyword : null; ?>">
-    <meta property="fb:app_id" content="550251971759267">
+    <!-- <meta property="fb:app_id" content="550251971759267"> -->
     <meta property="og:site_name" content="Viễn Vọng">
     <meta property="og:type" content="article">
     <meta property="og:url" content="<?php echo 'https://vienvong.com/'. $this->uri->uri_string;?>">
