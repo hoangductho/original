@@ -16,7 +16,7 @@
 	    <div class="widget widget_weather">
 	        <h3 class="widget-title">Weather</h3>
 	        <div class="newsletter-container">
-		        <div id="weather"></div>
+		        <!-- <div id="weather"></div> -->
 	        </div>
 	    </div> 
 	    <div class="widget widget_social clearfix">
