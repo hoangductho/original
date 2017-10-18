@@ -10,7 +10,6 @@
 	<!-- Meta -->
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="author" content="https://vienvong.com">
 	<meta name="description" content="<?php echo isset($description) ? $description : null; ?>">
     <meta name="keywords" content="<?php echo isset($keyword) ? $keyword : null; ?>">
     <meta property="fb:app_id" content="550251971759267">
