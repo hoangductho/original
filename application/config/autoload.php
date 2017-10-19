@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('user_agent', 'Format', 'email', 'Vmail', 'vienvong/VCommon', 'phpseclib/Phpseclib');
+$autoload['libraries'] = array('user_agent', 'Format', 'email', 'Vmail', 'vienvong/VCommon', 'phpseclib/Phpseclib', 'Parsedown');
 
 /*
 | -------------------------------------------------------------------
