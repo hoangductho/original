@@ -135,3 +135,7 @@ td.hljs-ln-code {
 	background-color: #f6f8fa;
 	border: none;
 }
+
+.widget_ads img, .content-ad img {
+	width: 100%;
+}

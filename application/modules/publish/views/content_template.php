@@ -13,6 +13,12 @@
 	        <h3 class="widget-title">Advertisement</h3>
 	        <a href="http://www.theme-junkie.com/" target="_blank"><img src="/assets/images/ad_300x250.png" alt="Ad Widget"></a>
 	    </div> --><!-- .widget .widget_ads -->
+
+	    <div class="widget widget_ads">
+	        <!-- <h3 class="widget-title">Advertisement</h3>   -->
+	        <a href='https://pub.accesstrade.vn/deep_link/4712106233689487615?url=http%3A%2F%2Ffptshop.com.vn%2F'> <img src='https://s3-ap-southeast-1.amazonaws.com/images.accesstrade.vn/47d1e990583c9c67424d369f3414728e/5243_320x100_20161216091200467.jpg'/> </a>
+	    </div><!-- .widget .widget_ads -->
+	    
 	    <div class="widget widget_weather">
 	        <h3 class="widget-title">Weather</h3>
 	        <div class="newsletter-container">
@@ -44,11 +50,6 @@
 	        </form>
 	        </div>
 	    </div> --><!-- .widget .widget_newsletter -->
-	    
-	    <!-- <div class="widget widget_ads">
-	        <h3 class="widget-title">Advertisement</h3>  
-	        <a href="http://www.theme-junkie.com/" target="_blank"><img src="/assets/images/ad_300x250_2.png" alt="Ad Widget"></a>
-	    </div> --><!-- .widget .widget_ads -->
 
 	    <?php if(!empty($keyword)) {
 	    	$this->view('widget/tags', array('keyword' => $keyword));
