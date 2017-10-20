@@ -25,7 +25,7 @@
 				<?php // $Parsedown = new Parsedown();
 				// echo $Parsedown->text($article['content']);?>
 			</div>			 -->								
-			<pre class="row" id='md_content'><?php //echo htmlentities($article['content'])?></pre>
+			<pre class="row" id='md_content'><?php echo htmlentities($article['content'])?></pre>
 			<div class="article-content markdown-body" id='html_content'></div>	
 		</div><!-- .entry-content -->
 
