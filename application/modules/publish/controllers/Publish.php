@@ -103,10 +103,14 @@ class Publish extends CI_Controller {
 		];
 
 		$trends = $this->MPublicArticles->getTrending($category_id);
-		$ignore['id'] = array();
+		$ignore = array();
 
-		foreach ($trends as $key => $value) {
-			array_push($ignore['id'], $value['id']);
+		if(!empty($trends)) {
+			$ignore['id'] = array();
+
+			foreach ($trends as $key => $value) {
+				array_push($ignore['id'], $value['id']);
+			}
 		}
 
 		if(!empty($category_id)) {
