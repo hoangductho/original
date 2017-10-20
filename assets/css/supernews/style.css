@@ -2350,8 +2350,8 @@ blockquote cite:before {
 	text-decoration: none;
 }
 /* Ad Widget */
-.widget_ads .widget-title,
-.widget_ads .widget-title {
+.widget_qc .widget-title,
+.widget_qc .widget-title {
 	background: none;
 	border: none;
 	color: #9f9f9f;
@@ -3304,12 +3304,12 @@ table.cart td.actions .button {
 	height: 90px;
 	margin: 20px 0;
 }
-.content-ad {
+.content-qc {
 	margin-bottom: 25px;
 	padding: 0;
 }
 .header-ad img,
-.content-ad img {
+.content-qc img {
 	width: 100%;
 }	
 #carousel-1 .hentry a.video-thumbnail {

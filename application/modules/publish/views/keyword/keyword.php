@@ -1,6 +1,4 @@
-<div class="content-ad">
-    <a href="http://www.theme-junkie.com/"><img src="/assets/images/728x90.png" alt=""></a>
-</div>  
+<?php $this->view('widget/content_qc');?> 
 
 <!-- Content / Start -->
 <div id="content" class="content-loop list category-box">
