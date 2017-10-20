@@ -21,12 +21,12 @@
 		<img class="entry-thumbnail" src="<?php echo $article['image']?>" alt="" width="100%">
 
 		<div class="entry-content">
-			<div class="article-content markdown-body" id='html_content'>
-				<?php $Parsedown = new Parsedown();
-				echo $Parsedown->text($article['content']);?>
-			</div>											
-			<!-- <pre class="row" id='md_content'><?php //echo htmlentities($article['content'])?></pre>
-			<div class="article-content markdown-body" id='html_content'></div> -->	
+			<!-- <div class="article-content markdown-body" id='html_content'>
+				<?php // $Parsedown = new Parsedown();
+				// echo $Parsedown->text($article['content']);?>
+			</div>			 -->								
+			<pre class="row" id='md_content'><?php //echo htmlentities($article['content'])?></pre>
+			<div class="article-content markdown-body" id='html_content'></div>	
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer clearfix">
