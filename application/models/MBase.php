@@ -58,6 +58,8 @@ class MBase extends CI_Model {
 			$select = implode(',', $select);
 		}
 
+		$page = $page < 1 ? 1 : $page;
+
 		if(!empty($page)) {
 			$limit = $this->CI->config->item('limit');
 			$this->db->limit($limit, ($page - 1) * $limit);
