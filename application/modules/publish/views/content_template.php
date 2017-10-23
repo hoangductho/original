@@ -16,7 +16,7 @@
 
 	    <div class="widget widget_qc">
 	        <!-- <h3 class="widget-title">Advertisement</h3>   -->
-	        <a href="https://pub.accesstrade.vn/deep_link/4712106233689487615?url=http://www.lazada.vn/san-deal-gia-dinh/"><img src="http://static.accesstrade.vn/publisher/www/files/img_promo/offer/banner/lazada/300x250/san_4.jpg" width=300 height=250></a>
+	        <?php $this->view('widget/ads_right_top.php');?>
 	    </div><!-- .widget .widget_qc -->
 	    
 	    <div class="widget widget_weather">
@@ -66,6 +66,10 @@
 	    <?php if(!empty($series)) {
 	    	$this->view('widget/series', array('series' => $series));
 	    }?>
+	    <div class="widget widget_qc">
+	        <!-- <h3 class="widget-title">Advertisement</h3>   -->
+	        <?php $this->view('widget/ads_right_bottom.php');?>
+	    </div><!-- .widget .widget_qc -->
 	    <!-- .widget -->
 	    
 	    <!-- <div class="widget widget_qc">
