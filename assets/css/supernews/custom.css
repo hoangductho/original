@@ -14,6 +14,14 @@
 	position: center;
 }
 
+.header-ad {
+	float: left;
+	width: 100%;
+	max-width: 728px;
+	display: inline-block;
+}
+
+
 @media screen and (max-width: 480px) {
     .list .contain-thumbnail {
 		float: left;
@@ -30,7 +38,14 @@
 		max-height: 200px;
 		position: center;
 	}
+
+	.header-ad {
+		width: 280px;
+		max-width: 280px;
+	}
+
 }
+
 
 #footer .entry-title a {
 	text-decoration: none !important;
