@@ -21,7 +21,7 @@
 		<img class="entry-thumbnail" src="<?php echo $article['image']?>" alt="" width="100%">
 
 		<div class="entry-content">
-			<?php $this->view('widget/ads_header'); ?>
+			<?php $this->view('widget/ads_detail_top'); ?>
 			<br/>
 			<pre class="row" id='md_content'><?php echo htmlentities($article['content'])?></pre>
 			<div class="article-content markdown-body" id='html_content'></div>	
