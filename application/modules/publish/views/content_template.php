@@ -16,7 +16,7 @@
 
 	    <div class="widget widget_qc">
 	        <!-- <h3 class="widget-title">Advertisement</h3>   -->
-	        <a href='https://pub.accesstrade.vn/deep_link/4712106233689487615?url=http%3A%2F%2Ffptshop.com.vn%2F'> <img src='https://s3-ap-southeast-1.amazonaws.com/images.accesstrade.vn/47d1e990583c9c67424d369f3414728e/5243_320x100_20161216091200467.jpg'/> </a>
+	        <a href="https://pub.accesstrade.vn/deep_link/4712106233689487615?url=http://www.lazada.vn/san-deal-gia-dinh/"><img src="http://static.accesstrade.vn/publisher/www/files/img_promo/offer/banner/lazada/300x250/san_4.jpg" width=300 height=250></a>
 	    </div><!-- .widget .widget_qc -->
 	    
 	    <div class="widget widget_weather">
