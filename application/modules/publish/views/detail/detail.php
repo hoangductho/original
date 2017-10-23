@@ -21,17 +21,14 @@
 		<img class="entry-thumbnail" src="<?php echo $article['image']?>" alt="" width="100%">
 
 		<div class="entry-content">
-			<!-- <div class="article-content markdown-body" id='html_content'>
-				<?php // $Parsedown = new Parsedown();
-				// echo $Parsedown->text($article['content']);?>
-			</div>			 -->								
+			<?php $this->view('widget/ads_header'); ?>
+			<br/>
 			<pre class="row" id='md_content'><?php echo htmlentities($article['content'])?></pre>
 			<div class="article-content markdown-body" id='html_content'></div>	
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer clearfix">
-
-
+			<?php $this->view('widget/ads_detail_content'); ?>
 		</footer><!-- .entry-footer -->
 
 	    <div class="related-posts">
