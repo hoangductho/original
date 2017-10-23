@@ -46,6 +46,7 @@
               ) ;
           $string = preg_replace($search, $replace, $string);
           $string = preg_replace('/(-)+/', '-', $string);
+          $string = preg_replace('/(-)+$/', '', $string);
           $string = strtolower($string);
           return $string;
     }
