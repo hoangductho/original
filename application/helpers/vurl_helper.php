@@ -100,51 +100,51 @@ if(! function_exists('pagination_render'))
       $CI = &get_instance();
 
       $url = $CI->uri->uri_string;
-
-      $explode = explode('/', $url);
-
-      $current_page = filter_var(end($explode), FILTER_VALIDATE_INT) ? end($explode) : 1;
     }
+
+    $explode = explode('/', $url);
+
+    $current_page = filter_var(end($explode), FILTER_VALIDATE_INT) ? end($explode) : 1;
 
     $pagination = '<nav class="pagination">';
     
     if($current_page > 1){
-        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page - 1).'">Prev</a>';
+        $pagination .= '<a class="page-numbers " href="'.page_link_render($current_page - 1).'">Prev</a>';
     }
-    
-    $pagination .= '<a class="page-numbers current" href="'.page_link_render(1).'">1</a>';
+
+    if($current_page > 1 && $current_page <= $pages){
+        $pagination .= '<a class="page-numbers" href="'.page_link_render(1).'">1</a>';
+    }
 
     if($current_page - 3 > 1){
         $pagination .= '<span class="page-numbers dots">…</span>';
     }
     if($current_page - 2 > 1){
-        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page - 2).'">'.($current_page - 2).'</a>';
+        $pagination .= '<a class="page-numbers " href="'.page_link_render($current_page - 2).'">'.($current_page - 2).'</a>';
     }
 
     if($current_page - 1 > 1){
-        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page - 1).'">'.($current_page - 1).'</a>';
+        $pagination .= '<a class="page-numbers " href="'.page_link_render($current_page - 1).'">'.($current_page - 1).'</a>';
     }
     
-    if($current_page > 1 && $current_page < $pages){
-        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page).'">'.($current_page).'</a>';
-    }
+    $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page).'">'.($current_page).'</a>';
 
     if($current_page + 1 < $pages){
-        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page + 1).'">'.($current_page + 1).'</a>';
+        $pagination .= '<a class="page-numbers " href="'.page_link_render($current_page + 1).'">'.($current_page + 1).'</a>';
     }
     if($current_page + 2 < $pages){
-        $pagination .= '<a class="page-numbers prev" href="'.page_link_render($current_page + 2).'">'.($current_page + 2).'</a>';
+        $pagination .= '<a class="page-numbers " href="'.page_link_render($current_page + 2).'">'.($current_page + 2).'</a>';
     }
-    if($current_page + 3 < $pages){
+    if($current_page + 3 <= $pages){
         $pagination .= '<span class="page-numbers dots">…</span>';
     }
     
-    if($current_page <= $pages && $pages > 1){
-        $pagination .= '<a class="page-numbers current" href="'.page_link_render($pages).'">'.($pages).'</a>';
+    if($current_page < $pages && $pages > 1){
+        $pagination .= '<a class="page-numbers" href="'.page_link_render($pages).'">'.($pages).'</a>';
     }
 
     if($current_page < $pages){
-        $pagination .= '<a class="page-numbers next" href="'.page_link_render($current_page + 1).'">Next</a>';
+        $pagination .= '<a class="page-numbers " href="'.page_link_render($current_page + 1).'">Next</a>';
     }        
     
     $pagination .= '</nav>';
