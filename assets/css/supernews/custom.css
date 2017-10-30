@@ -155,3 +155,7 @@ td.hljs-ln-code {
 .widget_qc img, .content-ad img {
 	width: 100%;
 }
+
+blockquote:before {
+	content: "";
+}

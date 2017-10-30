@@ -25,6 +25,15 @@
 			<br/>
 			<pre class="row" id='md_content'><?php echo htmlentities($article['content'])?></pre>
 			<div class="article-content markdown-body" id='html_content'></div>	
+			<br>
+			<div class="row">
+				<?php if(!empty($series_list)){
+					echo "<h5>{$article['series']}</h5>";
+					foreach ($series_list as $key => $value) {
+						echo "<p><a  href='/publish/detail/{$value['id']}/{$value['friendly']}'>{$value['title']}</a></p>";
+					}
+				}?>
+			</div>
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer clearfix">

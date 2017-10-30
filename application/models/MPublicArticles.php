@@ -183,5 +183,25 @@ class MPublicArticles extends MBase {
 		$query = $this->db->where($filter)->order_by('actived_date DESC')->limit($limit)->from($this->table)->get();
 
 		return $query->result_array();
+	}	
+
+	/**
+	 * --------------------------------------------
+	 * Get Series's Articles
+	 * --------------------------------------------
+	 */
+	public function getSeries($series, $id = 0) {
+		$filter = [
+			'status' => 1,
+			'privacy' => 1,
+			'result' => 1,
+			'deleted' => 0,
+			'series_code' => $series,
+			'id !=' => $id
+		];
+
+		$query = $this->db->where($filter)->order_by('actived_date ASC')->from($this->table)->get();
+
+		return $query->result_array();
 	}
 }
