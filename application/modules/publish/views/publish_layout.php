@@ -96,10 +96,11 @@
 				<!-- Secondary Navigation / Start -->
 				<nav id="secondary-nav">
 					<ul id="secondary-menu" class="sf-menu sf-js-enabled sf-arrows">
-						<li class="home_item current_item"><a href="/"><i class="fa fa-home"></i> Home</a></li>
+
+						<li class="home_item <?php echo empty($this->uri->segment(1)) ? 'current_item' : ""?>"><a href="/"><i class="fa fa-home"></i> Home</a></li>
 						<?php if(isset($categories)) {
 							foreach ($categories as $key => $value) {
-								echo '<li><a href="/publish/'.$value['id'].'/'.$value['friendly'].'">'.$value['name'].'</a></li>';
+								echo '<li class="'.($this->uri->segment(2) == $value['id'] ? 'current_item' : "").'"><a href="/publish/'.$value['id'].'/'.$value['friendly'].'">'.$value['name'].'</a></li>';
 							}
 						}?>
 						<!-- <li><a href="http://dev.theme-junkie.com/html/supernews/listing_grid2.html">Travel</a></li>			
