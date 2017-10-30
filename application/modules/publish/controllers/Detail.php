@@ -84,7 +84,7 @@ class Detail extends CI_Controller {
 			'relations' => $this->MPublicArticles->getRelations($id, $detail['category_id'])
 		);
 
-		if(!empty($detail['series_code'])) {
+		if(!empty($detail['series_code']) && !empty($detail['series'])) {
 			$settings['series_list'] = $this->MPublicArticles->getSeries($detail['series_code'],$id);
 		}
 
