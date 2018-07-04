@@ -70,6 +70,7 @@
 						<li><a href="/publish/contact">Contact</a></li>
 						<!-- <li><a href="#">Advertise</a></li>							 -->
 						<li><a href="/publish/privacy">Privacy</a></li>
+						<li><a href="/publish/cryptography">Tools</a></li>
 					</ul>
 
 				</nav>

@@ -166,8 +166,14 @@ class MY_Controller extends REST_Controller {
 
     $messages = $this->lang->language;
 
-    if(!empty($messages) && !empty($messages['SRV-'.$code])) {
-      return $messages['SRV-'.$code];
+    if(!empty($messages) ) {
+
+      if(is_int($code) && !empty($messages['SRV-'.$code])) {
+        return $messages['SRV-'.$code];
+      }
+      else {
+        return $messages[$code];
+      }
     }
 
     return null;

@@ -128,7 +128,7 @@ function end_date($remember, $start, $short, $long) {
  */  
 function PasswordHashing($password) {
 	if(!empty($password)) {
-		return sha1($password);
+		return md5($password);
 	}
 	else {
 		return null;
